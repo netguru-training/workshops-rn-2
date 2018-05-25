@@ -1,0 +1,3 @@
+rootProject.name = 'netguru_workshops'
+
+include ':app'
