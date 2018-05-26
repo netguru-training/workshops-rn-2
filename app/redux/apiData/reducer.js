@@ -68,15 +68,11 @@ function daysData(state = initialTempDataState, action) {
 
   switch (action.type) {
     case GET_TEMPERATURE_DATA:
-      console.log('payload...', action.payload)
-      console.log('state:...', state)
-
       const indexToBeChanged = _.findIndex(state.days, ['id', action.payload.id])
-      console.log(indexToBeChanged)
       console.log('before', state.days[indexToBeChanged])
-
       state.days[indexToBeChanged] = action.payload
       console.log('after', state.days[indexToBeChanged])
+      
       return {
         ...state
       }
