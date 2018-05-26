@@ -46,9 +46,9 @@ class HomeScreen extends Component {
         >
           <Button
             style={eventInfoButtonStyle}
-            title='Go to Event Info'
+            title='Go to Day Info'
             onPress={() => {
-              return navigate('EventInfo')
+              return navigate('DayInfo')
             }}
           />
           <Button
