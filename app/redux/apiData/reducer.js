@@ -1,6 +1,6 @@
 import moment from 'moment/moment'
 import * as _ from 'lodash'
-import { GET_TEMPERATURE_DATA } from '../types'
+import { GET_7_DAYS_TEMPERATURE_DATA } from '../types'
 
 const initialState = { data: [] }
 
@@ -35,6 +35,11 @@ function buildInitialState() {
     countryCode: 'PL',
     days: [
       buildDay(
+        startDate.clone(),
+        30,
+        'https://www.weatherbit.io/static/img/icons/r07d.png'
+      ),
+      buildDay(
         startDate.clone().add(1, 'day'),
         25,
         'https://www.weatherbit.io/static/img/icons/r01d.png'
@@ -63,11 +68,6 @@ function buildInitialState() {
         startDate.clone().add(6, 'day'),
         31,
         'https://www.weatherbit.io/static/img/icons/r06d.png'
-      ),
-      buildDay(
-        startDate.clone().add(7, 'day'),
-        30,
-        'https://www.weatherbit.io/static/img/icons/r07d.png'
       )
     ],
     tasksForDays: {
@@ -102,12 +102,14 @@ function daysData(state = initialTempDataState, action) {
           ]
         }
       }
-    case GET_TEMPERATURE_DATA:
+    case GET_7_DAYS_TEMPERATURE_DATA:
+      const newDays = [...state.days]
       const indexToBeChanged = _.findIndex(state.days, ['id', action.payload.id])
-      state.days[indexToBeChanged] = action.payload
+      newDays[indexToBeChanged] = action.payload
 
       return {
-        ...state
+        ...state,
+        days: newDays
       }
     default:
       return state

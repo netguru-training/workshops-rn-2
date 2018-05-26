@@ -20,7 +20,7 @@ const {
 
 class HomeScreen extends React.Component {
   componentDidMount() {
-    this.props.loadWeatherData()
+    this.props.load7DaysWeatherData()
   }
 
   render() {
@@ -86,8 +86,13 @@ HomeScreen.propTypes = {
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired
   }).isRequired,
-  daysData: PropTypes.any,
-  loadWeatherData: PropTypes.func.isRequired
+  daysData: PropTypes.shape({
+    cityName: PropTypes.string.isRequired,
+    countryCode: PropTypes.string.isRequired,
+    days: PropTypes.array.isRequired, // FIXME uzupełnić
+    tasksForDays: PropTypes.object.isRequired
+  }),
+  load7DaysWeatherData: PropTypes.func.isRequired
 }
 
 HomeScreen.navigationOptions = () => {
