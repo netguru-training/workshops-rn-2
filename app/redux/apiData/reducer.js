@@ -1,10 +1,10 @@
 import moment from 'moment/moment'
-import GET_TEMPERATURE_DATA from '../types'
+import {GET_TEMPERATURE_DATA} from '../types'
 
 const initialState = { data: [] }
 
 function apiData(state = initialState, action) {
-  console.log(11111, action.type)
+  console.log(11111, action, GET_TEMPERATURE_DATA)
   switch (action.type) {
     case GET_TEMPERATURE_DATA:
       console.log(action)

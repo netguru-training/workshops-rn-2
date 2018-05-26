@@ -6,7 +6,6 @@ import {
   WeatherEventListElement
 } from '../../components'
 import styles from './HomeScreen.styles'
-import getTemperature from '../../redux/apiData/actions'
 
 const {
   containerStyle,
@@ -19,11 +18,12 @@ const {
 class HomeScreen extends Component {
 
   componentDidMount() {
-    getTemperature()
+    this.props.loadWeatherData()
   }
 
   render() {
     const { navigate } = this.props.navigation
+    console.log("DANE Z API", this.props.daysData);
 
     return (
       <View
@@ -73,7 +73,9 @@ class HomeScreen extends Component {
 HomeScreen.propTypes = {
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired
-  }).isRequired
+  }).isRequired,
+  daysData: PropTypes.any,
+  loadWeatherData: PropTypes.func.isRequired
 }
 
 HomeScreen.navigationOptions = () => {
