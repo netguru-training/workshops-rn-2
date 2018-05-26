@@ -2,16 +2,16 @@ const styles = {
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+
   },
   containerRow: {
     flexDirection: 'row',
     justifyContent: 'space-between'
   },
   imageStyle: {
-    // TODO make it responsive :)
-    width: 100,
-    height: 100
+    width: 50,
+    height: 50
   },
   imageStyleSmall: {
     width: 35,
