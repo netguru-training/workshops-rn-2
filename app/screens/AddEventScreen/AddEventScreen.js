@@ -1,13 +1,23 @@
 import React from 'react'
 import { View } from 'react-native'
-// import styles from './AddEventScreen.styles'
+import styles from './AddEventScreen.styles'
 
-const AddEventScreen = () => {
-  return (
-    <View
-      style={{ backgroundColor: 'blue' }}
-    />
-  )
+const {
+  containerStyle
+} = styles
+
+class AddEventScreen extends React.Component {
+  static navigationOptions = {
+    title: 'Add Event'
+  };
+
+  render() {
+    return (
+      <View
+        style={containerStyle}
+      />
+    )
+  }
 }
 
 export default AddEventScreen
