@@ -4,11 +4,13 @@ import { GET_7_DAYS_TEMPERATURE_DATA } from '../types'
 
 export function get7DaysTemperature() {
   return (dispatch) => {
+    // eslint-disable-next-line max-len
     const url = `https://api.weatherbit.io/v2.0/forecast/daily?city=Poznan&country=PL&key=${API_KEY}`
 
-    axios.get(url)
+    axios
+      .get(url)
       .then((response) => {
-        for (let i = 0; i < 7; i++) {
+        for (let i = 0; i < 7; i += 1) {
           const responseData = response.data.data[i]
           const icon = `https://www.weatherbit.io/static/img/icons/${responseData.weather.icon}.png`
           const currentTemp = responseData.temp
@@ -25,7 +27,9 @@ export function get7DaysTemperature() {
             }
           })
         }
-      }).catch((error) => {
+      })
+      .catch((error) => {
+        // eslint-disable-next-line no-console
         console.log(error)
       })
   }
