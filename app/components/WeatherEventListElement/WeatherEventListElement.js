@@ -30,7 +30,6 @@ const WeatherEventListElement = ({
       <TouchableOpacity
         style={currentWeatherEventContainerStyle}
         onPress={() => {
-          // console.log('weszlo')
           return navigation.navigate('DayInfo')
         }}
       >

@@ -94,11 +94,13 @@ const initialTempDataState = buildInitialState()
 function daysData(state = initialTempDataState, action) {
   switch (action.type) {
     case GET_7_DAYS_TEMPERATURE_DATA:
+      const newDays = [...state.days]
       const indexToBeChanged = _.findIndex(state.days, ['id', action.payload.id])
-      state.days[indexToBeChanged] = action.payload
+      newDays[indexToBeChanged] = action.payload
 
       return {
-        ...state
+        ...state,
+        days: newDays
       }
     default:
       return state
