@@ -26,17 +26,14 @@ class HomeScreen extends React.Component {
   render() {
     // eslint-disable-next-line no-unused-vars
     const { navigate } = this.props.navigation
-    console.log(' DANE Z API ', this.props.daysData)
 
     const formattedDays = this.props.stuff.daysData.days || {}
-
-    console.log(formattedDays)
 
     return (
       <View style={containerStyle}>
         <View style={currentWeatherContainerStyle}>
           <CurrentWeatherInfo
-            headerInfo={moment(new Date(formattedDays[0].date)).format('dddd')}
+            headerInfo={moment(new Date(formattedDays[0].id)).format('dddd')}
             imageUrl={formattedDays[0].weather.icon}
             footerInfo={formattedDays[0].weather.temperatureCelcius}
             scale={1.66}
@@ -53,7 +50,7 @@ class HomeScreen extends React.Component {
                   <WeatherEventListElement
                     key={day.id}
                     imageUrl={day.weather.icon}
-                    headerInfo={moment(new Date(day.date)).format('dddd')}
+                    headerInfo={moment(new Date(day.id)).format('dddd')}
                     footerInfo={day.weather.temperatureCelcius}
                     scale={0.6}
                   />
