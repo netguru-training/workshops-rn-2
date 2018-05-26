@@ -14,10 +14,10 @@ class CreateEventForm extends Component {
       <View style={container}>
         <Text>Sample Text</Text>
         <Input
-          label="Label"
-          placeholder="Text"
+          label='Label'
+          placeholder='Text'
           value={this.state.input}
-          onChangeText={(value) => this.setState({ input: value })}
+          onChangeText={(value) => { return this.setState({ input: value }) }}
         />
       </View>
     )
