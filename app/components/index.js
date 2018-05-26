@@ -3,11 +3,13 @@ import WeatherEventListElement from './WeatherEventListElement/WeatherEventListE
 import CardSection from './CardSection/CardSection'
 import CreateEventForm from './CreateEventForm/CreateEventForm'
 import Input from './Input/Input'
+import DailyTaskElement from './DailyTaskElement/DailyTaskElement'
 
 export {
   CurrentWeatherInfo,
   WeatherEventListElement,
   CardSection,
   CreateEventForm,
-  Input
+  Input,
+  DailyTaskElement
 }
