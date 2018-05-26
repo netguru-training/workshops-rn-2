@@ -11,6 +11,7 @@
     "lint": "eslint app"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "babel-eslint": "^8.2.3",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
