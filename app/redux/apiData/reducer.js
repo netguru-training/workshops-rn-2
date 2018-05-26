@@ -36,13 +36,13 @@ function buildInitialState() {
     cityName: 'Poznań',
     countryCode: 'PL',
     days: [
-      buildDay(startDate.add(1, 'day'), 25, 'sun.png'),
-      buildDay(startDate.add(2, 'day'), 26, 'rain.png'),
-      buildDay(startDate.add(3, 'day'), 28, 'rain.png'),
-      buildDay(startDate.add(4, 'day'), 30, 'partly-sun.png'),
-      buildDay(startDate.add(5, 'day'), 31, 'sun.png'),
-      buildDay(startDate.add(6, 'day'), 31, 'rain.png'),
-      buildDay(startDate.add(7, 'day'), 30, 'rain.png')
+      buildDay(startDate.add(1, 'day'), 25, 'https://www.weatherbit.io/static/img/icons/r01d.png'),
+      buildDay(startDate.add(2, 'day'), 26, 'https://www.weatherbit.io/static/img/icons/r02d.png'),
+      buildDay(startDate.add(3, 'day'), 28, 'https://www.weatherbit.io/static/img/icons/r03d.png'),
+      buildDay(startDate.add(4, 'day'), 30, 'https://www.weatherbit.io/static/img/icons/r04d.png'),
+      buildDay(startDate.add(5, 'day'), 31, 'https://www.weatherbit.io/static/img/icons/r05d.png'),
+      buildDay(startDate.add(6, 'day'), 31, 'https://www.weatherbit.io/static/img/icons/r06d.png'),
+      buildDay(startDate.add(7, 'day'), 30, 'https://www.weatherbit.io/static/img/icons/r07d.png')
     ],
     tasksForDays: [
       {
