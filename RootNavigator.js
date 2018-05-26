@@ -1,14 +1,14 @@
 import React from 'react'
 import { View } from 'react-native'
 import { StackNavigator } from 'react-navigation'
-import { HomeScreen, AddEventScreen, DayInfoScreen } from './app/screens'
+import { HomeScreenContainer, AddEventScreen, DayInfoScreen } from './app/screens'
 import styles from './RootNavigator.styles'
 
 const { container } = styles
 
 const Navigator = StackNavigator({
   Home: {
-    screen: HomeScreen
+    screen: HomeScreenContainer
   },
   AddEvent: {
     screen: AddEventScreen
