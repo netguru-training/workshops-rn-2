@@ -85,7 +85,12 @@ HomeScreen.propTypes = {
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired
   }).isRequired,
-  daysData: PropTypes.any,
+  daysData: PropTypes.shape({
+    cityName: PropTypes.string.isRequired,
+    countryCode: PropTypes.string.isRequired,
+    days: PropTypes.object.isRequired, // FIXME uzupełnić
+    tasksForDays: PropTypes.array.isRequired
+  }),
   load7DaysWeatherData: PropTypes.func.isRequired
 }
 
