@@ -29,7 +29,6 @@ function buildDay(aDate, temperature, icon) {
 
 function buildInitialState() {
   const startDate = moment(new Date())
-  console.log(startDate)
 
   return {
     cityName: 'Poznań',
@@ -69,9 +68,7 @@ function daysData(state = initialTempDataState, action) {
   switch (action.type) {
     case GET_TEMPERATURE_DATA:
       const indexToBeChanged = _.findIndex(state.days, ['id', action.payload.id])
-      console.log('before', state.days[indexToBeChanged])
       state.days[indexToBeChanged] = action.payload
-      console.log('after', state.days[indexToBeChanged])
       
       return {
         ...state
