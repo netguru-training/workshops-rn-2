@@ -8,7 +8,7 @@
     "ios": "react-native run-ios",
     "android": "react-native run-android",
     "clean": "rm -rf $TMPDIR/react-* && watchman watch-del-all && yarn cache clean",
-    "lint": "eslint app",
+    "lint": "eslint app App.js index.js store.js RootNavigator.js",
     "prettier:fix": "prettier --write app/**/*.js App.js index.js"
   },
   "dependencies": {

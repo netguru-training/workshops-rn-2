@@ -17,10 +17,14 @@ const WeatherEventListElement = ({
   imageUrl,
   footerInfo,
   eventsNumber,
-  scale
+  scale,
+  navigation
 }) => {
   const eventsNumberInfo = eventsNumber > 0 ?
     `You Have ${eventsNumber} events today` : 'You have no events today'
+
+
+  const { navigate } = props.navigation
 
   return (
     <View
@@ -28,6 +32,10 @@ const WeatherEventListElement = ({
     >
       <TouchableOpacity
         style={currentWeatherEventContainerStyle}
+        onPress={() => {
+          // console.log('weszlo')
+          return navigate('DayInfo')
+        }}
       >
 
         <CurrentWeatherInfo
@@ -61,7 +69,10 @@ WeatherEventListElement.propTypes = {
   eventsNumber: PropTypes.number,
   headerInfo: PropTypes.string,
   footerInfo: PropTypes.number,
-  scale: PropTypes.number
+  scale: PropTypes.number,
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired
+  }).isRequired
 }
 
 WeatherEventListElement.defaultProps = {

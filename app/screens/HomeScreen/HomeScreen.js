@@ -27,7 +27,8 @@ class HomeScreen extends React.Component {
     // eslint-disable-next-line no-unused-vars
     const { navigate } = this.props.navigation
 
-    const formattedDays = this.props.stuff.daysData.days || {}
+    const formattedDays = this.props.daysData.days || {}
+
 
     return (
       <View style={containerStyle}>
@@ -53,6 +54,7 @@ class HomeScreen extends React.Component {
                     headerInfo={moment(new Date(day.id)).format('dddd')}
                     footerInfo={day.weather.temperatureCelcius}
                     scale={0.6}
+                    navigation={this.props.navigation}
                   />
                 )
               })}

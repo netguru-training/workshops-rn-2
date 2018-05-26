@@ -5,7 +5,6 @@ import { daysData } from '../../redux/apiData/reducer'
 
 const mapStateToProps = (state) => {
   return {
-    stuff: state,
     daysData: state.daysData
   }
 }
