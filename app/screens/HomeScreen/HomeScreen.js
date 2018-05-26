@@ -20,7 +20,7 @@ const {
 
 class HomeScreen extends React.Component {
   componentDidMount() {
-    this.props.loadWeatherData()
+    this.props.load7DaysWeatherData()
   }
 
   render() {
@@ -87,7 +87,7 @@ HomeScreen.propTypes = {
     navigate: PropTypes.func.isRequired
   }).isRequired,
   daysData: PropTypes.any,
-  loadWeatherData: PropTypes.func.isRequired
+  load7DaysWeatherData: PropTypes.func.isRequired
 }
 
 HomeScreen.navigationOptions = () => {
