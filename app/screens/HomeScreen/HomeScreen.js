@@ -54,6 +54,7 @@ class HomeScreen extends React.Component {
                     headerInfo={moment(new Date(day.id)).format('dddd')}
                     footerInfo={day.weather.temperatureCelcius}
                     scale={0.6}
+                    navigation={this.props.navigation}
                   />
                 )
               })}
