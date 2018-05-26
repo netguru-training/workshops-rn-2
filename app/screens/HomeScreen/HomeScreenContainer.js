@@ -12,6 +12,7 @@ const mapDispatchToProps = (/* dispatch */) => {
     // onAddEvent: (dateAsString) => {
     //   dispatch(showAddEventScreen(dateAsString))
     // }
+    
   }
 }
 

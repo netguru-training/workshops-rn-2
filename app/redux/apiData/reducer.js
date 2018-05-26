@@ -1,9 +1,17 @@
 import moment from 'moment/moment'
+import GET_TEMPERATURE_DATA from '../types'
 
 const initialState = { data: [] }
 
 function apiData(state = initialState, action) {
+  console.log(11111, action.type)
   switch (action.type) {
+    case GET_TEMPERATURE_DATA:
+      console.log(action)
+
+      return {
+        ...state
+      }
     default:
       return state
   }
@@ -21,7 +29,7 @@ function buildDay(aDate, temperature, icon) {
 
   return {
     id,
-    date: id,
+    dateId: id,
     weather: {
       temperatureCelcius: temperature,
       icon

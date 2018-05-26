@@ -6,6 +6,7 @@ import {
   WeatherEventListElement
 } from '../../components'
 import styles from './HomeScreen.styles'
+import getTemperature from '../../redux/apiData/actions'
 
 const {
   containerStyle,
@@ -16,6 +17,11 @@ const {
 } = styles
 
 class HomeScreen extends Component {
+
+  componentDidMount() {
+    getTemperature()
+  }
+
   render() {
     const { navigate } = this.props.navigation
 
