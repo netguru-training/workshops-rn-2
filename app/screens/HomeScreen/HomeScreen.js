@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, View, ScrollView } from 'react-native'
+import { ScrollView, View } from 'react-native'
 import PropTypes from 'prop-types'
 import moment from 'moment/moment'
 
@@ -9,13 +9,17 @@ import styles from './HomeScreen.styles'
 const {
   containerStyle,
   currentWeatherContainerStyle,
+  // eslint-disable-next-line no-unused-vars
   eventInfoButtonStyle,
+  // eslint-disable-next-line no-unused-vars
   addEventButtonStyle,
+  // eslint-disable-next-line no-unused-vars
   buttonsContainerStyle,
   listContainer
 } = styles
 
 const HomeScreen = (props) => {
+  // eslint-disable-next-line no-unused-vars
   const { navigate } = props.navigation
 
   const formattedDays = props.stuff.daysData.days || {}

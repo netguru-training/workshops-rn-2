@@ -11,7 +11,14 @@ const Input = ({
   return (
     <View style={containerStyle}>
       <Text style={labelStyle}>{label}</Text>
-      <TextInput secureTextEntry={secureTextEntry} placeholder={placeholder} autoCorrect={false} value={value} onChangeText={onChangeText} style={inputStyle} />
+      <TextInput
+        secureTextEntry={secureTextEntry}
+        placeholder={placeholder}
+        autoCorrect={false}
+        value={value}
+        onChangeText={onChangeText}
+        style={inputStyle}
+      />
     </View>
   )
 }
