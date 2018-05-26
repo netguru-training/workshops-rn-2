@@ -8,7 +8,8 @@
     "ios": "react-native run-ios",
     "android": "react-native run-android",
     "clean": "rm -rf $TMPDIR/react-* && watchman watch-del-all && yarn cache clean",
-    "lint": "eslint app"
+    "lint": "eslint app",
+    "prettier:fix" : "prettier --write app/**/*.js App.js index.js"
   },
   "dependencies": {
     "babel-eslint": "^8.2.3",
@@ -21,6 +22,7 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
     "eslint-plugin-react-native": "^3.2.1",
+    "moment": "^2.22.1",
     "prop-types": "^15.6.1",
     "react": "16.3.1",
     "react-dom": "^16.3.2",
@@ -34,6 +36,7 @@
     "babel-jest": "22.4.3",
     "babel-preset-react-native": "4.0.0",
     "jest": "22.4.3",
+    "prettier": "^1.12.1",
     "react-test-renderer": "16.3.1"
   },
   "jest": {

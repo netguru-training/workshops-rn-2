@@ -1,5 +1,7 @@
 import React from 'react'
-import {View, Image} from 'react-native'
+import { View , Image} from 'react-native'
+import PropTypes from 'prop-types'
+
 import {
   CurrentWeatherInfo,
   WeatherEventListElement
@@ -8,10 +10,16 @@ import styles from './HomeScreen.styles'
 
 const {
   containerStyle,
-  currentWeatherContainerStyle
+  currentWeatherContainerStyle,
+  eventInfoButtonStyle,
+  addEventButtonStyle,
+  buttonsContainerStyle
 } = styles
 
 const HomeScreen = () => {
+
+  const { navigate } = this.props.navigation
+
 
   const events = [
     {
@@ -56,8 +64,38 @@ const HomeScreen = () => {
         }
 
       </View>
+      <View
+        style={buttonsContainerStyle}
+      >
+        <Button
+          style={eventInfoButtonStyle}
+          title='Go to Day Info'
+          onPress={() => {
+            return navigate('DayInfo')
+          }}
+        />
+        <Button
+          style={addEventButtonStyle}
+          title='Go to Add Event'
+          onPress={() => {
+            return navigate('AddEvent')
+          }}
+        />
+      </View>
     </View>
   )
+}
+
+HomeScreen.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired
+  }).isRequired
+}
+
+HomeScreen.navigationOptions = () => {
+  return {
+    headerTitle: 'Home'
+  }
 }
 
 export default HomeScreen
