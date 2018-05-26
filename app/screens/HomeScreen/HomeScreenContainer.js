@@ -1,20 +1,31 @@
 import { connect } from 'react-redux'
 import HomeScreen from './HomeScreen'
+import { getTemperature } from '../../redux/apiData/actions'
 
 const mapStateToProps = (state) => {
   return {
-    stuff: state
+    daysData: state.daysData
   }
 }
 
-const mapDispatchToProps = (/* dispatch */) => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    // onAddEvent: (dateAsString) => {
-    //   dispatch(showAddEventScreen(dateAsString))
-    // }
+    loadWeatherData: () => {
+      const fn = getTemperature()
+      fn(dispatch)
+    }
   }
 }
 
-const HomeScreenContainer = connect(mapStateToProps, mapDispatchToProps)(HomeScreen)
+const mergeProps = (stateProps, dispatchProps, ownProps) => {
+  // we need to merge for example `navigation` property
+  return {
+    ...stateProps,
+    ...dispatchProps,
+    ...ownProps
+  }
+}
+
+const HomeScreenContainer = connect(mapStateToProps, mapDispatchToProps, mergeProps)(HomeScreen)
 
 export default HomeScreenContainer

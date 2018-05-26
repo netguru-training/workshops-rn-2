@@ -8,10 +8,11 @@
     "ios": "react-native run-ios",
     "android": "react-native run-android",
     "clean": "rm -rf $TMPDIR/react-* && watchman watch-del-all && yarn cache clean",
-    "lint": "eslint app",
-    "prettier:fix" : "prettier --write app/**/*.js App.js index.js"
+    "lint": "eslint app App.js index.js store.js RootNavigator.js",
+    "prettier:fix": "prettier --write app/**/*.js App.js index.js"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "babel-eslint": "^8.2.3",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
@@ -22,6 +23,7 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
     "eslint-plugin-react-native": "^3.2.1",
+    "lodash": "^4.17.10",
     "moment": "^2.22.1",
     "prop-types": "^15.6.1",
     "react": "16.3.1",

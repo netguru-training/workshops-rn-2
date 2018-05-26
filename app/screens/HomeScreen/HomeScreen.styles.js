@@ -4,7 +4,8 @@ const styles = {
     paddingHorizontal: 6
   },
   currentWeatherContainerStyle: {
-    flex: 0.5
+    flex: 0.35,
+    paddingVertical: 10
   },
   eventInfoButtonStyle: {
     flex: 0.5,
@@ -18,6 +19,9 @@ const styles = {
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'center'
+  },
+  listContainer: {
+    flex: 0.65
   }
 }
 
