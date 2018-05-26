@@ -44,29 +44,41 @@ function buildInitialState() {
       buildDay(startDate.add(6, 'day'), 31, 'rain.png'),
       buildDay(startDate.add(7, 'day'), 30, 'rain.png')
     ],
-    tasksForDays: [
-      {
-        dayId: '2018-05-25',
-        tasks: [
-          { id: 1, name: 'Foo', description: 'Lorem ipsum' },
-          { id: 2, name: 'Foo', description: 'Lorem ipsum' }
-        ]
-      },
-      {
-        dayId: '2018-05-27',
-        tasks: [
-          { id: 3, name: 'Foo', description: 'Lorem ipsum' },
-          { id: 4, name: 'Foo', description: 'Lorem ipsum' }
-        ]
-      }
-    ]
+    tasksForDays: {
+      '2018-05-25': [{ id: 1, name: 'Foo', description: 'Lorem ipsum' },
+        { id: 2, name: 'Foo', description: 'Lorem ipsum' }],
+      '2018-05-26': [{ id: 1, name: 'Foo', description: 'Lorem ipsum' },
+        { id: 2, name: 'Foo', description: 'Lorem ipsum' }]
+    }
   }
 }
 
 const initialTempDataState = buildInitialState()
 
-function daysData(state = initialTempDataState /* , action */) {
-  return state
+function daysData(state = initialTempDataState, action) {
+  switch (action.type) {
+    case 'saveEvent':
+      return (!state.tasksForDays[action.payload.date]) ? {
+        ...state,
+        tasksForDays: {
+          ...state.tasksForDays,
+          [action.payload.date]: [
+            { name: action.payload.date, description: action.payload.desc }
+          ]
+        }
+      } : {
+        ...state,
+        tasksForDays: {
+          ...state.tasksForDays,
+          [action.payload.date]: [
+            ...state.tasksForDays[action.payload.date],
+            { name: action.payload.date, description: action.payload.desc }
+          ]
+        }
+      }
+    default:
+      return state
+  }
 }
 
 export { apiData, daysData }

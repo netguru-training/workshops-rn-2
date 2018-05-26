@@ -3,6 +3,10 @@ const styles = {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center'
+  },
+  formLabel: {
+    fontSize: 20,
+    marginBottom: 10
   }
 }
 

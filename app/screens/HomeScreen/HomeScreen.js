@@ -55,7 +55,9 @@ class HomeScreen extends Component {
             style={addEventButtonStyle}
             title='Go to Add Event'
             onPress={() => {
-              return navigate('AddEvent')
+              return navigate('AddEvent', {
+                day: '2018-05-25'
+              })
             }}
           />
         </View>

@@ -2,18 +2,19 @@ const styles = {
   inputStyle: {
     color: '#000',
     paddingRight: 5,
-    paddingLeft: 5,
+    paddingLeft: 20,
     fontSize: 18,
     lineHeight: 23,
-    flex: 2
+    flex: 2,
+    paddingTop: 0
   },
   labelStyle: {
     fontSize: 20,
-    textAlign: 'center',
+    textAlign: 'right',
     flex: 1
   },
   containerStyle: {
-    height: 40,
+    minHeight: 40,
     flexDirection: 'row',
     alignItems: 'center'
   }
