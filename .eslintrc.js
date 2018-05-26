@@ -18,7 +18,7 @@ module.exports = {
     'react/jsx-no-bind': 0,
     'react/jsx-wrap-multilines': 0,
     'react/require-default-props': 0,
-    'react/jsx-first-prop-new-line': ['error', 'always'],
+    // 'react/jsx-first-prop-new-line': ['error', 'always'],
     'newline-before-return': 2,
     'react-native/no-unused-styles': 2,
     'react-native/split-platform-components': 2,

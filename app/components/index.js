@@ -1,7 +1,4 @@
 import CurrentWeatherInfo from './CurrentWeatherInfo/CurrentWeatherInfo'
 import WeatherEventListElement from './WeatherEventListElement/WeatherEventListElement'
 
-export {
-  CurrentWeatherInfo,
-  WeatherEventListElement
-}
+export { CurrentWeatherInfo, WeatherEventListElement }
