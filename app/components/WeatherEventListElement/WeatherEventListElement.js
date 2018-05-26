@@ -23,9 +23,6 @@ const WeatherEventListElement = ({
   const eventsNumberInfo = eventsNumber > 0 ?
     `You Have ${eventsNumber} events today` : 'You have no events today'
 
-
-  const { navigate } = props.navigation
-
   return (
     <View
       style={containerStyle}
