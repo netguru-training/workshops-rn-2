@@ -49,6 +49,7 @@ class HomeScreen extends React.Component {
                 return (
                   <WeatherEventListElement
                     key={day.id}
+                    date={day.id}
                     imageUrl={day.weather.icon}
                     headerInfo={moment(new Date(day.id)).format('dddd')}
                     footerInfo={day.weather.temperatureCelcius}
@@ -88,8 +89,8 @@ HomeScreen.propTypes = {
   daysData: PropTypes.shape({
     cityName: PropTypes.string.isRequired,
     countryCode: PropTypes.string.isRequired,
-    days: PropTypes.object.isRequired, // FIXME uzupełnić
-    tasksForDays: PropTypes.array.isRequired
+    days: PropTypes.array.isRequired, // FIXME uzupełnić
+    tasksForDays: PropTypes.object.isRequired
   }),
   load7DaysWeatherData: PropTypes.func.isRequired
 }
