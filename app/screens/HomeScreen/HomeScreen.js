@@ -1,8 +1,8 @@
 import React from 'react'
-import {Button, View} from 'react-native'
+import { Button, View } from 'react-native'
 import PropTypes from 'prop-types'
 
-import {CurrentWeatherInfo, WeatherEventListElement} from '../../components'
+import { CurrentWeatherInfo, WeatherEventListElement } from '../../components'
 import styles from './HomeScreen.styles'
 
 const {
@@ -14,9 +14,7 @@ const {
 } = styles
 
 const HomeScreen = (props) => {
-
   const { navigate } = props.navigation
-
 
   const events = [
     {
@@ -51,13 +49,15 @@ const HomeScreen = (props) => {
         style={containerStyle}
       >
         {
-          events.map((event) => <WeatherEventListElement
-            key={event.key}
-            imageUrl={event.imageUrl}
-            headerInfo={event.day}
-            footerInfo={event.temperature}
-            scale={0.6}
-          />)
+          events.map((event) => {
+ return <WeatherEventListElement
+   key={event.key}
+   imageUrl={event.imageUrl}
+   headerInfo={event.day}
+   footerInfo={event.temperature}
+   scale={0.6}
+ />
+})
         }
 
       </View>

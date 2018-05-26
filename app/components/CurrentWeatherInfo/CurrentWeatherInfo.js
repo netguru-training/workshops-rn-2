@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { View, Text, Image } from 'react-native'
 import styles from './CurrentWeatherInfo.styles'
-import ResponsiveImage from '../ResponsiveImage/ResponsiveImage';
+import ResponsiveImage from '../ResponsiveImage/ResponsiveImage'
 
 const {
   container,
@@ -17,7 +17,6 @@ const {
 const CurrentWeatherInfo = ({
   imageUrl, headerInfo, footerInfo, rowDirection, scale
 }) => {
-
   console.log(imageUrl)
 
   return (
