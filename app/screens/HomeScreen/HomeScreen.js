@@ -27,7 +27,9 @@ class HomeScreen extends React.Component {
     // eslint-disable-next-line no-unused-vars
     const { navigate } = this.props.navigation
 
+
     const formattedDays = this.props.stuff.daysData.days || {}
+
 
     return (
       <View style={containerStyle}>
