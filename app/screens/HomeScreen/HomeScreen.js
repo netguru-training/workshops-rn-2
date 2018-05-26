@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { View, Button } from 'react-native'
 import PropTypes from 'prop-types'
 import {
@@ -15,11 +15,7 @@ const {
   buttonsContainerStyle
 } = styles
 
-class HomeScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Home'
-  };
-
+class HomeScreen extends Component {
   render() {
     const { navigate } = this.props.navigation
 
@@ -72,6 +68,12 @@ HomeScreen.propTypes = {
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired
   }).isRequired
+}
+
+HomeScreen.navigationOptions = () => {
+  return {
+    headerTitle: 'Home'
+  }
 }
 
 export default HomeScreen

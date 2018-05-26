@@ -6,17 +6,17 @@ const {
   containerStyle
 } = styles
 
-class AddEventScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Add Event'
-  };
+const AddEventScreen = () => {
+  return (
+    <View
+      style={containerStyle}
+    />
+  )
+}
 
-  render() {
-    return (
-      <View
-        style={containerStyle}
-      />
-    )
+AddEventScreen.navigationOptions = () => {
+  return {
+    headerTitle: 'Add Event'
   }
 }
 

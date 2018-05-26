@@ -6,17 +6,17 @@ const {
   containerStyle
 } = styles
 
-class EventInfoScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Event Info'
-  };
+const EventInfoScreen = () => {
+  return (
+    <View
+      style={containerStyle}
+    />
+  )
+}
 
-  render() {
-    return (
-      <View
-        style={containerStyle}
-      />
-    )
+EventInfoScreen.navigationOptions = () => {
+  return {
+    headerTitle: 'Event Info'
   }
 }
 
