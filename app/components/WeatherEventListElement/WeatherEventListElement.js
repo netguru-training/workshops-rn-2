@@ -60,7 +60,7 @@ WeatherEventListElement.propTypes = {
   imageUrl: PropTypes.string.isRequired,
   eventsNumber: PropTypes.number,
   headerInfo: PropTypes.string,
-  footerInfo: PropTypes.string,
+  footerInfo: PropTypes.number,
   scale: PropTypes.number
 }
 

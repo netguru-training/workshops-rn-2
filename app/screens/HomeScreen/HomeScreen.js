@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button, View } from 'react-native'
 import PropTypes from 'prop-types'
+import moment from 'moment/moment'
 
 import { CurrentWeatherInfo, WeatherEventListElement } from '../../components'
 import styles from './HomeScreen.styles'
@@ -16,20 +17,9 @@ const {
 const HomeScreen = (props) => {
   const { navigate } = props.navigation
 
-  const events = [
-    {
-      key: 0,
-      day: 'Monday',
-      imageUrl: 'https://www.weatherbit.io/static/img/icons/r01d.png',
-      temperature: '25 *C'
-    },
-    {
-      key: 1,
-      day: 'Tuesday',
-      imageUrl: 'https://www.weatherbit.io/static/img/icons/r01d.png',
-      temperature: '18 *C'
-    }
-  ]
+  const formattedDays = props.stuff.daysData.days || {}
+
+  console.log(formattedDays)
 
   return (
     <View
@@ -39,25 +29,27 @@ const HomeScreen = (props) => {
         style={currentWeatherContainerStyle}
       >
         <CurrentWeatherInfo
-          headerInfo='Monday'
-          imageUrl='https://www.weatherbit.io/static/img/icons/r01d.png'
-          footerInfo='25 *C'
+          headerInfo={formattedDays[0].date}
+          imageUrl={{formattedDays[0].weather.icon}}
+          footerInfo={formattedDays[0].weather.temperatureCelcius}
           scale={1.66}
         />
       </View>
       <View
         style={containerStyle}
       >
-        {
-          events.map((event) => {
- return <WeatherEventListElement
-   key={event.key}
-   imageUrl={event.imageUrl}
-   headerInfo={event.day}
-   footerInfo={event.temperature}
-   scale={0.6}
- />
-})
+        { formattedDays &&
+          formattedDays
+            .filter((day) => { return day.id !== 0 })
+            .map((day) => {
+            return <WeatherEventListElement
+              key={day.id}
+              imageUrl={day.weather.icon}
+              headerInfo={moment(new Date(day.date)).format('dddd')}
+              footerInfo={day.weather.temperatureCelcius}
+              scale={0.6}
+            />
+          })
         }
 
       </View>
