@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { View, Text, Image } from 'react-native'
+import { Image } from 'react-native'
 
 const ResponsiveImage = ({ imageUrl, scale }) => {
   const width = 50 * scale
@@ -15,7 +15,8 @@ const ResponsiveImage = ({ imageUrl, scale }) => {
 }
 
 ResponsiveImage.propTypes = {
-  imageUrl: PropTypes.string.isRequired
+  imageUrl: PropTypes.string.isRequired,
+  scale: PropTypes.number
 }
 
 ResponsiveImage.defaultProps = {
