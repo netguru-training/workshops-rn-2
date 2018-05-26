@@ -18,6 +18,10 @@ const styles = {
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'center'
+  },
+  listContainer: {
+    flex: 0.5,
+    paddingVertical: 40
   }
 }
 

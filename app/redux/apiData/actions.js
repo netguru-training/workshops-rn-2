@@ -6,7 +6,8 @@ export function getTemperature() {
   return (dispatch) => {
     const url = `https://api.weatherbit.io/v2.0/current?city=Poznan&country=PL&key=${API_KEY}`
 
-    axios.get(url)
+    axios
+      .get(url)
       .then((response) => {
         const iconCode = response.data.data[0].weather.icon
         const icon = `https://www.weatherbit.io/static/img/icons/${iconCode}.png`
@@ -22,7 +23,9 @@ export function getTemperature() {
             }
           }
         })
-      }).catch((error) => {
+      })
+      .catch((error) => {
+        // eslint-disable-next-line no-console
         console.log(error)
       })
   }

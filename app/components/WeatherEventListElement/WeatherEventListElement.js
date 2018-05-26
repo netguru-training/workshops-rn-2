@@ -3,7 +3,6 @@ import { View, Text, TouchableOpacity } from 'react-native'
 import PropTypes from 'prop-types'
 import CurrentWeatherInfo from '../CurrentWeatherInfo/CurrentWeatherInfo'
 import styles from './WeatherEventListElement.styles'
-import ResponsiveImage from '../ResponsiveImage/ResponsiveImage'
 
 const {
   containerStyle,
@@ -61,7 +60,7 @@ WeatherEventListElement.propTypes = {
   imageUrl: PropTypes.string.isRequired,
   eventsNumber: PropTypes.number,
   headerInfo: PropTypes.string,
-  footerInfo: PropTypes.string,
+  footerInfo: PropTypes.number,
   scale: PropTypes.number
 }
 

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import HomeScreen from './HomeScreen'
-import { getTemperature } from '../../redux/apiData/actions';
-import { daysData } from '../../redux/apiData/reducer';
+import { getTemperature } from '../../redux/apiData/actions'
+import { daysData } from '../../redux/apiData/reducer'
 
 const mapStateToProps = (state) => {
   return {
