@@ -8,7 +8,7 @@ const { container } = styles
 
 const Navigator = StackNavigator({
   Home: {
-    screen: HomeScreen
+    screen: HomeScreenContainer
   },
   AddEvent: {
     screen: AddEventScreen
