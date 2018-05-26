@@ -7,11 +7,13 @@ const {
   containerStyle
 } = styles
 
-const CardSection = props =>
-  <View
-    style={[containerStyle, props.style]} >
+const CardSection = (props) => {
+  return <View
+    style={[containerStyle, props.style]}
+  >
     {props.children}
   </View>
+}
 
 CardSection.propTypes = {
   style: PropTypes.object,

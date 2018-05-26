@@ -20,7 +20,7 @@ const HomeScreen = (props) => {
 
   const formattedDays = props.stuff.daysData.days || {}
 
-  console.log(formattedDays)
+  console.log(props)
 
   return (
     <View
@@ -54,24 +54,24 @@ const HomeScreen = (props) => {
         }
 
       </ScrollView>
-      {/*<View*/}
-        {/*style={buttonsContainerStyle}*/}
-      {/*>*/}
-        {/*<Button*/}
-          {/*style={eventInfoButtonStyle}*/}
-          {/*title='Go to Day Info'*/}
-          {/*onPress={() => {*/}
-            {/*return navigate('DayInfo')*/}
-          {/*}}*/}
-        {/*/>*/}
-        {/*<Button*/}
-          {/*style={addEventButtonStyle}*/}
-          {/*title='Go to Add Event'*/}
-          {/*onPress={() => {*/}
-            {/*return navigate('AddEvent')*/}
-          {/*}}*/}
-        {/*/>*/}
-      {/*</View>*/}
+      {/* <View */}
+      {/* style={buttonsContainerStyle} */}
+      {/* > */}
+      {/* <Button */}
+      {/* style={eventInfoButtonStyle} */}
+      {/* title='Go to Day Info' */}
+      {/* onPress={() => { */}
+      {/* return navigate('DayInfo') */}
+      {/* }} */}
+      {/* /> */}
+      {/* <Button */}
+      {/* style={addEventButtonStyle} */}
+      {/* title='Go to Add Event' */}
+      {/* onPress={() => { */}
+      {/* return navigate('AddEvent') */}
+      {/* }} */}
+      {/* /> */}
+      {/* </View> */}
     </View>
   )
 }

@@ -3,8 +3,11 @@ import { Text, View, TextInput } from 'react-native'
 import PropTypes from 'prop-types'
 import styles from './Input.styles'
 
-const Input = ({ label, value, onChangeText, placeholder, secureTextEntry }) => {
+const Input = ({
+  label, value, onChangeText, placeholder, secureTextEntry
+}) => {
   const { inputStyle, labelStyle, containerStyle } = styles
+
   return (
     <View style={containerStyle}>
       <Text style={labelStyle}>{label}</Text>
