@@ -1,13 +1,17 @@
 import axios from 'axios'
+import API_KEY from '../../../api_config.json'
 
 export function getTemperature() {
-  const apiKey = 'e73aec6edb714cfea53db470e20aa9b1'
-  const url = `https://api.weatherbit.io/v2.0/current?city=Poznan&country=Poland&key=${apiKey}`
+  const url = `https://api.weatherbit.io/v2.0/current?city=Poznan&country=Poland&key=${API_KEY}`
 
   axios.get(url)
     .then((response) => {
-      console.log(response.data[0].weather.code)
-      console.log(response.data[0].temp)
+      console.log(response)
+      const iconCode = response.data[0].weather.icon
+      const iconUrl = `https://www.weatherbit.io/static/img/icons/${iconCode}.png`
+      const currentTemp = response.data[0].temp
+
+      console.log(iconCode, currentTemp)
     }).catch((error) => {
       console.log(error)
     })
