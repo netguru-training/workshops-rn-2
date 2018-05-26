@@ -55,6 +55,7 @@ class HomeScreen extends React.Component {
                     footerInfo={day.weather.temperatureCelcius}
                     scale={0.6}
                     navigation={this.props.navigation}
+                    eventsNumber={0}
                   />
                 )
               })}

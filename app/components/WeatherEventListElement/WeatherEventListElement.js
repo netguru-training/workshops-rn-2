@@ -70,20 +70,13 @@ const WeatherEventListElement = ({
 WeatherEventListElement.propTypes = {
   imageUrl: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
-  eventsNumber: PropTypes.number,
-  headerInfo: PropTypes.string,
-  footerInfo: PropTypes.number,
-  scale: PropTypes.number,
+  eventsNumber: PropTypes.number.isRequired,
+  headerInfo: PropTypes.string.isRequired,
+  footerInfo: PropTypes.number.isRequired,
+  scale: PropTypes.number.isRequired,
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired
   }).isRequired
-}
-
-WeatherEventListElement.defaultProps = {
-  eventsNumber: 0,
-  headerInfo: '',
-  footerInfo: '',
-  scale: 1.00
 }
 
 export default WeatherEventListElement
