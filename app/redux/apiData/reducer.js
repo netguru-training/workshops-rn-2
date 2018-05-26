@@ -33,7 +33,8 @@ function buildInitialState() {
   const startDate = moment(new Date())
 
   return {
-    location: 'Poznań, Poland',
+    cityName: 'Poznań',
+    countryCode: 'PL',
     days: [
       buildDay(startDate.add(1, 'day'), 25, 'sun.png'),
       buildDay(startDate.add(2, 'day'), 26, 'rain.png'),
