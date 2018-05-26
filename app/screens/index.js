@@ -1,5 +1,5 @@
-import HomeScreen from './HomeScreen/HomeScreen'
+import HomeScreenContainer from './HomeScreen/HomeScreenContainer'
 import DayInfoScreen from './DayInfoScreen/DayInfoScreen'
 import AddEventScreen from './AddEventScreen/AddEventScreen'
 
-export { HomeScreen, DayInfoScreen, AddEventScreen }
+export { HomeScreenContainer, DayInfoScreen, AddEventScreen }
