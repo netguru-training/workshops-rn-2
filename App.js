@@ -5,9 +5,7 @@ import RootNavigator from './RootNavigator'
 
 const App = () => {
   return (
-    <Provider
-      store={store}
-    >
+    <Provider store={store}>
       <RootNavigator />
     </Provider>
   )
