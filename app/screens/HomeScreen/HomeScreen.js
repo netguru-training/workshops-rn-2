@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, View } from 'react-native'
+import { Button, View, ScrollView } from 'react-native'
 import PropTypes from 'prop-types'
 import moment from 'moment/moment'
 
@@ -11,7 +11,8 @@ const {
   currentWeatherContainerStyle,
   eventInfoButtonStyle,
   addEventButtonStyle,
-  buttonsContainerStyle
+  buttonsContainerStyle,
+  listContainer
 } = styles
 
 const HomeScreen = (props) => {
@@ -29,14 +30,14 @@ const HomeScreen = (props) => {
         style={currentWeatherContainerStyle}
       >
         <CurrentWeatherInfo
-          headerInfo={formattedDays[0].date}
-          imageUrl={{formattedDays[0].weather.icon}}
+          headerInfo={moment(new Date(formattedDays[0].date)).format('dddd')}
+          imageUrl={formattedDays[0].weather.icon}
           footerInfo={formattedDays[0].weather.temperatureCelcius}
           scale={1.66}
         />
       </View>
-      <View
-        style={containerStyle}
+      <ScrollView
+        style={listContainer}
       >
         { formattedDays &&
           formattedDays
@@ -52,25 +53,25 @@ const HomeScreen = (props) => {
           })
         }
 
-      </View>
-      <View
-        style={buttonsContainerStyle}
-      >
-        <Button
-          style={eventInfoButtonStyle}
-          title='Go to Day Info'
-          onPress={() => {
-            return navigate('DayInfo')
-          }}
-        />
-        <Button
-          style={addEventButtonStyle}
-          title='Go to Add Event'
-          onPress={() => {
-            return navigate('AddEvent')
-          }}
-        />
-      </View>
+      </ScrollView>
+      {/*<View*/}
+        {/*style={buttonsContainerStyle}*/}
+      {/*>*/}
+        {/*<Button*/}
+          {/*style={eventInfoButtonStyle}*/}
+          {/*title='Go to Day Info'*/}
+          {/*onPress={() => {*/}
+            {/*return navigate('DayInfo')*/}
+          {/*}}*/}
+        {/*/>*/}
+        {/*<Button*/}
+          {/*style={addEventButtonStyle}*/}
+          {/*title='Go to Add Event'*/}
+          {/*onPress={() => {*/}
+            {/*return navigate('AddEvent')*/}
+          {/*}}*/}
+        {/*/>*/}
+      {/*</View>*/}
     </View>
   )
 }

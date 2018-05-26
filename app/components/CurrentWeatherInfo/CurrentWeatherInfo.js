@@ -38,7 +38,7 @@ CurrentWeatherInfo.propTypes = {
   imageUrl: PropTypes.string.isRequired,
   rowDirection: PropTypes.bool,
   headerInfo: PropTypes.string,
-  footerInfo: PropTypes.string,
+  footerInfo: PropTypes.number,
   scale: PropTypes.number
 }
 
