@@ -31,7 +31,7 @@ const WeatherEventListElement = ({
         style={currentWeatherEventContainerStyle}
         onPress={() => {
           // console.log('weszlo')
-          return navigate('DayInfo')
+          return navigation.navigate('DayInfo')
         }}
       >
 

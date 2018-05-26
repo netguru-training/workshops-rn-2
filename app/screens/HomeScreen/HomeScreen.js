@@ -29,7 +29,6 @@ class HomeScreen extends React.Component {
 
     const formattedDays = this.props.daysData.days || {}
 
-
     return (
       <View style={containerStyle}>
         <View style={currentWeatherContainerStyle}>

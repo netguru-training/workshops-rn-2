@@ -4,7 +4,6 @@ import { GET_7_DAYS_TEMPERATURE_DATA } from '../types'
 
 export function get7DaysTemperature() {
   return (dispatch) => {
-
     const url = `https://api.weatherbit.io/v2.0/forecast/daily?city=Poznan&country=PL&key=${API_KEY}`
 
     axios.get(url)
