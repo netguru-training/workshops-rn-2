@@ -16,6 +16,15 @@ const mapDispatchToProps = (/* dispatch */) => {
   }
 }
 
-const HomeScreenContainer = connect(mapStateToProps, mapDispatchToProps)(HomeScreen)
+const mergeProps = (stateProps, dispatchProps, ownProps) => {
+  // we need to merge for example `navigation` property
+  return {
+    ...stateProps,
+    ...dispatchProps,
+    ...ownProps
+  }
+}
+
+const HomeScreenContainer = connect(mapStateToProps, mapDispatchToProps, mergeProps)(HomeScreen)
 
 export default HomeScreenContainer
