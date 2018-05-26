@@ -1,7 +1,10 @@
 const styles = {
   containerStyle: {
     flex: 1,
-    backgroundColor: 'blue'
+    justifyContent: 'space-around'
+  },
+  formStyle: {
+    flex: 1
   }
 }
 
