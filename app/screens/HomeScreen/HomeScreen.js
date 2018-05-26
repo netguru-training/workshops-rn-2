@@ -15,15 +15,17 @@ const HomeScreen = () => {
 
   const events = [
     {
+      key: 0,
       day: 'Monday',
-      imageUrl: 'https://www.freeiconspng.com/uploads/weather-icon-png-16.png',
-      temperature: '25 *C',
+      imageUrl: 'https://www.weatherbit.io/static/img/icons/r01d.png',
+      temperature: '25 *C'
     },
     {
+      key: 1,
       day: 'Tuesday',
       imageUrl: 'https://www.weatherbit.io/static/img/icons/r01d.png',
-      temperature: '25 *C',
-    },
+      temperature: '18 *C'
+    }
   ]
 
   return (
@@ -37,13 +39,20 @@ const HomeScreen = () => {
           headerInfo='Monday'
           imageUrl='https://www.weatherbit.io/static/img/icons/r01d.png'
           footerInfo='25 *C'
+          scale={1.66}
         />
       </View>
       <View
         style={containerStyle}
       >
         {
-          events.map((event) => <WeatherEventListElement imageUrl={event.imageURL} headerInfo={event.day} footerInfo={event.temperature}/>)
+          events.map((event) => <WeatherEventListElement
+            key={event.key}
+            imageUrl={event.imageUrl}
+            headerInfo={event.day}
+            footerInfo={event.temperature}
+            scale={0.6}
+          />)
         }
 
       </View>

@@ -5,16 +5,13 @@ import {View, Text, Image} from 'react-native'
 
 const ResponsiveImage = ({imageUrl, scale}) => {
 
-  console.log('weszlo')
-  console.log(imageUrl)
-
 
   const width = 50 * scale;
   const height = 50 * scale;
 
   return (
     <Image
-      style={{width: width, height: height}}
+      style={{width, height}}
       source={{uri: imageUrl}}
     />
   )

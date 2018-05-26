@@ -17,7 +17,8 @@ const WeatherEventListElement = ({
   headerInfo,
   imageUrl,
   footerInfo,
-  eventsNumber
+  eventsNumber,
+  scale
 }) => {
   const eventsNumberInfo = eventsNumber > 0 ?
     `You Have ${eventsNumber} events today` : 'You have no events today'
@@ -29,13 +30,13 @@ const WeatherEventListElement = ({
       <TouchableOpacity
         style={currentWeatherEventContainerStyle}
       >
-        {/*<ResponsiveImage imageUrl={}/>*/}
 
         <CurrentWeatherInfo
           headerInfo={headerInfo}
           imageUrl={imageUrl}
           footerInfo={footerInfo}
           rowDirection
+          scale={scale}
         />
         <Text
           style={currentEventsNumberStyle}
@@ -60,13 +61,15 @@ WeatherEventListElement.propTypes = {
   imageUrl: PropTypes.string.isRequired,
   eventsNumber: PropTypes.number,
   headerInfo: PropTypes.string,
-  footerInfo: PropTypes.string
+  footerInfo: PropTypes.string,
+  scale: PropTypes.number
 }
 
 WeatherEventListElement.defaultProps = {
   eventsNumber: 0,
   headerInfo: '',
-  footerInfo: ''
+  footerInfo: '',
+  scale: 1.00
 }
 
 export default WeatherEventListElement

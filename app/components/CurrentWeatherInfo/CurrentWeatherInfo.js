@@ -15,7 +15,7 @@ const {
 } = styles
 
 const CurrentWeatherInfo = ({
-  imageUrl, headerInfo, footerInfo, rowDirection
+  imageUrl, headerInfo, footerInfo, rowDirection, scale
 }) => {
 
   console.log(imageUrl)
@@ -29,7 +29,7 @@ const CurrentWeatherInfo = ({
       >
         {headerInfo}
       </Text>
-      <ResponsiveImage imageUrl={imageUrl} scale={1.66} />
+      <ResponsiveImage imageUrl={imageUrl} scale={scale} />
       <Text
         style={[footerInfoStyle, rowDirection && textSmall]}
       >
@@ -43,13 +43,15 @@ CurrentWeatherInfo.propTypes = {
   imageUrl: PropTypes.string.isRequired,
   rowDirection: PropTypes.bool,
   headerInfo: PropTypes.string,
-  footerInfo: PropTypes.string
+  footerInfo: PropTypes.string,
+  scale: PropTypes.number
 }
 
 CurrentWeatherInfo.defaultProps = {
   rowDirection: false,
   headerInfo: '',
-  footerInfo: ''
+  footerInfo: '',
+  scale: 1.00
 }
 
 export default CurrentWeatherInfo

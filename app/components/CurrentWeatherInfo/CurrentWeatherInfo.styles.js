@@ -10,9 +10,8 @@ const styles = {
     justifyContent: 'space-between'
   },
   imageStyle: {
-    // TODO make it responsive :)
     width: 50,
-    height: 50,
+    height: 50
   },
   imageStyleSmall: {
     width: 35,
