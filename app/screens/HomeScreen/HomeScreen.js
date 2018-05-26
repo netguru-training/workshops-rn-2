@@ -1,11 +1,8 @@
 import React from 'react'
-import { View , Image} from 'react-native'
+import {Button, View} from 'react-native'
 import PropTypes from 'prop-types'
 
-import {
-  CurrentWeatherInfo,
-  WeatherEventListElement
-} from '../../components'
+import {CurrentWeatherInfo, WeatherEventListElement} from '../../components'
 import styles from './HomeScreen.styles'
 
 const {
@@ -16,9 +13,9 @@ const {
   buttonsContainerStyle
 } = styles
 
-const HomeScreen = () => {
+const HomeScreen = (props) => {
 
-  const { navigate } = this.props.navigation
+  const { navigate } = props.navigation
 
 
   const events = [
