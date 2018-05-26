@@ -1,31 +1,32 @@
 import axios from 'axios'
 import { API_KEY } from '../../../api_config'
-import { GET_TEMPERATURE_DATA } from '../types'
+import { GET_7_DAYS_TEMPERATURE_DATA } from '../types'
 
-export function getTemperature() {
+export function get7DaysTemperature() {
   return (dispatch) => {
-    const url = `https://api.weatherbit.io/v2.0/current?city=Poznan&country=PL&key=${API_KEY}`
 
-    axios
-      .get(url)
+    const url = `https://api.weatherbit.io/v2.0/forecast/daily?city=Poznan&country=PL&key=${API_KEY}`
+
+    axios.get(url)
       .then((response) => {
-        const iconCode = response.data.data[0].weather.icon
-        const icon = `https://www.weatherbit.io/static/img/icons/${iconCode}.png`
-        const currentTemp = response.data.data[0].temp
+        for (let i = 0; i < 7; i++) {
+          const responseData = response.data.data[i]
+          const icon = `https://www.weatherbit.io/static/img/icons/${responseData.weather.icon}.png`
+          const currentTemp = responseData.temp
+          const date = responseData.datetime
 
-        dispatch({
-          type: GET_TEMPERATURE_DATA,
-          payload: {
-            id: '2018-05-28',
-            weather: {
-              temperatureCelcius: currentTemp,
-              icon
+          dispatch({
+            type: GET_7_DAYS_TEMPERATURE_DATA,
+            payload: {
+              id: date,
+              weather: {
+                temperatureCelcius: currentTemp,
+                icon
+              }
             }
-          }
-        })
-      })
-      .catch((error) => {
-        // eslint-disable-next-line no-console
+          })
+        }
+      }).catch((error) => {
         console.log(error)
       })
   }
