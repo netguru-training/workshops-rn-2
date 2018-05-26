@@ -38,7 +38,7 @@ npm-debug.log
 yarn-error.log
 
 #Api config
-api_config.json
+api_config.js
 
 # BUCK
 buck-out/

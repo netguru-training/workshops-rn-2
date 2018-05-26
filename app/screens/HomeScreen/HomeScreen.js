@@ -23,7 +23,7 @@ class HomeScreen extends Component {
 
   render() {
     const { navigate } = this.props.navigation
-    console.log("DANE Z API", this.props.daysData);
+    console.log(" DANE Z API ", this.props.daysData)
 
     return (
       <View
