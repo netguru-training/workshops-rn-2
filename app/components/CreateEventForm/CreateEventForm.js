@@ -9,7 +9,7 @@ const { container, formLabel } = styles
 const CreateEventForm = (props) => {
   return (
     <View style={container}>
-      <Text style={formLabel}>{props.day}</Text>
+      <Text style={formLabel}>{props.dateString}</Text>
       <Input
         label='Name'
         placeholder='Party'
@@ -27,7 +27,7 @@ const CreateEventForm = (props) => {
 }
 
 CreateEventForm.propTypes = {
-  day: PropTypes.string.isRequired,
+  dateString: PropTypes.string.isRequired,
   nameHandler: PropTypes.func,
   descHandler: PropTypes.func,
   name: PropTypes.string,

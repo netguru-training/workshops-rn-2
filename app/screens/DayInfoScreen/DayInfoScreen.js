@@ -7,28 +7,43 @@ import TasksList from './TasksList'
 
 const { containerStyle, weatherInfoStyle } = styles
 
-function messageFromCelcius(temperatureCelcius) {
-  if (temperatureCelcius < 0) {
-    return 'Dress warmly!'
-  } else if (temperatureCelcius < 20) {
-    return 'Remember about the jacket!'
-  } else if (temperatureCelcius < 30) {
-    return 'What a nice day!'
+function messageFromWeather(weather) {
+  let message
+
+  if (weather.temperatureCelcius < 0) {
+    message = 'Dress warmly!'
+  } else if (weather.temperatureCelcius < 10) {
+    message = 'Remember about the jacket!'
+  } else if (weather.temperatureCelcius < 20) {
+    message = 'It\'s warn outside :)'
+  } else if (weather.temperatureCelcius < 25) {
+    message = 'What a nice day!'
+  } else {
+    message = 'Take a bootle of water!!!'
   }
 
-  return 'Take a bootle of water!'
+  if (weather.possibilityOfPrecipitation >= 25) {
+    message += '\nIt might rain - pack an umbrella'
+  }
+
+  if (weather.windSpeed >= 25) {
+    message += '\n It\'s very windy'
+  }
+
+  return message
 }
 
-const DayInfoComponent = ({ dateString }) => {
-  // FIXME more data for the message
-  const temperatureMessage = `${dateString}.\nTemperature is ${999999}.
-  ${messageFromCelcius(999999)}`
+const DayInfoComponent = ({ dateString, day }) => {
+  const temperatureMessage = `${dateString}
+  Current temp: ${day.weather.temperatureCelcius}
+  ${messageFromWeather(day.weather)}`
 
   return <Text style={weatherInfoStyle}>{temperatureMessage}</Text>
 }
 
 DayInfoComponent.propTypes = {
-  dateString: PropTypes.string.isRequired
+  dateString: PropTypes.string.isRequired,
+  day: PropTypes.object.isRequired // FIXME .shape( { ... } )
 }
 
 const mapStateToPropsDayInfo = (state) => {
@@ -37,19 +52,31 @@ const mapStateToPropsDayInfo = (state) => {
   }
 }
 
-const DayInfo = connect(mapStateToPropsDayInfo)(DayInfoComponent)
+const mergePropsDayInfo = (stateProps, dispatchProps, ownProps) => {
+  // we need to merge for example `navigation` property
+  return {
+    ...stateProps,
+    ...dispatchProps,
+    ...ownProps
+  }
+}
+
+const DayInfo = connect(mapStateToPropsDayInfo, null, mergePropsDayInfo)(DayInfoComponent)
 
 class DayInfoScreen extends Component {
   state = {}
 
   render() {
-    const { navigation, tasksForDays } = this.props
+    const { navigation, tasksForDays, days } = this.props
     const dateString = navigation.getParam('dateString')
+    const day = days.find((w) => {
+      return w.id === dateString
+    })
     const tasks = tasksForDays[dateString]
 
     return (
       <View style={containerStyle}>
-        <DayInfo dateString={dateString} />
+        <DayInfo dateString={dateString} day={day} />
         <TasksList tasks={tasks} />
       </View>
     )
@@ -68,14 +95,16 @@ DayInfoScreen.navigationOptions = () => {
 
 DayInfoScreen.propTypes = {
   navigation: PropTypes.object.isRequired,
-  tasksForDays: PropTypes.object.isRequired
+  tasksForDays: PropTypes.object.isRequired,
+  days: PropTypes.array.isRequired
 }
 
 // REDUX STUFF
 
 const mapStateToProps = (state) => {
   return {
-    tasksForDays: state.daysData.tasksForDays
+    tasksForDays: state.daysData.tasksForDays,
+    days: state.daysData.days
   }
 }
 
