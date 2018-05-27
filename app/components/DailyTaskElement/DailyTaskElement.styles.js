@@ -10,7 +10,7 @@ const styles = {
     justifyContent: 'space-between'
   },
   titleStyle: {
-    flex: 0.9,
+    flex: 1,
     fontSize: 20
   },
   descriptionStyle: {
@@ -19,7 +19,12 @@ const styles = {
     margin: 10
   },
   buttonStyle: {
-    flex: 0.1
+  },
+  tickButton: {
+    flex: 1,
+    width: 32,
+    height: 32,
+    resizeMode: 'contain',
   }
 }
 
