@@ -1,6 +1,7 @@
 const styles = {
   containerStyle: {
-    padding: 10
+    paddingVertical: 10,
+    paddingHorizontal: 8
   }
 }
 

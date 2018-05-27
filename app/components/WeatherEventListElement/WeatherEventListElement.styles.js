@@ -5,7 +5,7 @@ const styles = {
     alignItems: 'center',
     borderBottomWidth: 5,
     borderColor: '#f5f5f6',
-    paddingHorizontal: 6,
+    paddingHorizontal: 8,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1
   },
