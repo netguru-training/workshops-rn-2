@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {Image, Text, TouchableOpacity, View} from 'react-native'
+import { Image, Text, TouchableOpacity, View } from 'react-native'
 import styles from './DailyTaskElement.styles'
 import tickFalse from './tick_false.png'
 import tickTrue from './tick_true.png'
@@ -17,7 +17,7 @@ const DailyTaskElement = ({
       <View style={horizontalContainer}>
         <Text style={titleStyle}>{title}</Text>
         <TouchableOpacity onPress={onComplete} style={buttonStyle}>
-          <Image style={styles.tickButton} source={done ? tickTrue : tickFalse}  />
+          <Image style={styles.tickButton} source={done ? tickTrue : tickFalse} />
         </TouchableOpacity>
       </View>
       <Text style={descriptionStyle}>{description}</Text>

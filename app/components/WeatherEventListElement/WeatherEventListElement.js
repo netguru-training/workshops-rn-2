@@ -10,7 +10,7 @@ const {
   containerStyle,
   currentWeatherEventContainerStyle,
   currentEventsNumberStyle,
-  addEventContainerStyle,
+  addEventContainerStyle
 } = styles
 
 const AddEventButton = ({ navigation, dateString }) => {
