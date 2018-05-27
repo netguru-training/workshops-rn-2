@@ -12,6 +12,26 @@ const {
   plusStyle
 } = styles
 
+const AddEventButton = ({ navigation, dateString }) => {
+  return (
+    <TouchableOpacity
+      style={addEventContainerStyle}
+      onPress={() => {
+        return navigation.navigate('AddEvent', { dateString })
+      }}
+    >
+      <Text style={plusStyle}>+</Text>
+    </TouchableOpacity>
+  )
+}
+
+AddEventButton.propTypes = {
+  dateString: PropTypes.string.isRequired,
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired
+  }).isRequired
+}
+
 const WeatherEventListElement = ({
   headerInfo,
   imageUrl,
@@ -21,22 +41,17 @@ const WeatherEventListElement = ({
   navigation,
   date
 }) => {
-  const eventsNumberInfo = eventsNumber > 0 ?
-    `You Have ${eventsNumber} events today` : 'You have no events today'
-
-  const { navigate } = navigation
+  const eventsNumberInfo =
+    eventsNumber > 0 ? `You Have ${eventsNumber} events today` : 'You have no events today'
 
   return (
-    <View
-      style={containerStyle}
-    >
+    <View style={containerStyle}>
       <TouchableOpacity
         style={currentWeatherEventContainerStyle}
         onPress={() => {
-          return navigation.navigate('DayInfo')
+          return navigation.navigate('DayInfo', { dateString: date })
         }}
       >
-
         <CurrentWeatherInfo
           headerInfo={headerInfo}
           imageUrl={imageUrl}
@@ -44,25 +59,10 @@ const WeatherEventListElement = ({
           rowDirection
           scale={scale}
         />
-        <Text
-          style={currentEventsNumberStyle}
-        >
-          {eventsNumberInfo}
-        </Text>
+        <Text style={currentEventsNumberStyle}>{eventsNumberInfo}</Text>
       </TouchableOpacity>
-      <TouchableOpacity
-        style={addEventContainerStyle}
-        onPress={() => {
-          // console.log('weszlo')
-          return navigate('AddEvent', { day: date })
-        }}
-      >
-        <Text
-          style={plusStyle}
-        >
-          +
-        </Text>
-      </TouchableOpacity>
+
+      <AddEventButton navigation={navigation} dateString={date} />
     </View>
   )
 }
@@ -76,8 +76,7 @@ WeatherEventListElement.propTypes = {
   scale: PropTypes.number.isRequired,
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired
-  }).isRequired,
-  onPress: PropTypes.func
+  }).isRequired
 }
 
 export default WeatherEventListElement
