@@ -25,8 +25,10 @@ function messageFromWeather(weather) {
     message += '\nIt might rain - pack an umbrella'
   }
 
-  if (weather.windSpeed >= 25) {
+  if (weather.windSpeed >= 5) {
     message += '\n It\'s very windy'
+  } else if (weather.windSpeed >= 25) {
+    message += 'DO NOT GO OUTSIDE!'
   }
 
   return message

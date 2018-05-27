@@ -32,9 +32,9 @@ class DayInfoScreen extends Component {
   }
 }
 
-DayInfoScreen.navigationOptions = () => {
+DayInfoScreen.navigationOptions = ({ navigation }) => {
   return {
-    headerTitle: 'Day Info',
+    headerTitle: navigation.getParam('dateString', 'Day details'),
     headerStyle: {
       backgroundColor: '#4dd0e1'
     },

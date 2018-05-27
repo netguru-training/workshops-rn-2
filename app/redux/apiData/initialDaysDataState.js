@@ -5,16 +5,29 @@ import moment from 'moment/moment'
  * @param {moment} aDate
  * @param {number} temperature
  * @param {string} icon
+ * @param {number} possibilityOfPrecipitation [%, 0..1]
+ * @param {number} cloudDoverage [%, 0..1]
+ * @param {number} windSpeed [m/s]
  * @returns {{id: string, date: Date, tasks: Array, weather: {temperatureCelcius: *, icon: *}}}
  */
-function buildDay(aDate, temperature, icon) {
+function buildDay(
+  aDate,
+  temperature,
+  icon,
+  possibilityOfPrecipitation = 0,
+  cloudDoverage = 0.0,
+  windSpeed = 0.0
+) {
   const id = aDate.format('YYYY-MM-DD')
 
   return {
     id,
     weather: {
       temperatureCelcius: temperature,
-      icon
+      icon,
+      possibilityOfPrecipitation,
+      cloudCoverage: cloudDoverage,
+      windSpeed
     }
   }
 }
@@ -60,7 +73,8 @@ function buildInitialState() {
       buildDay(
         startDate.clone().add(1, 'day'),
         25,
-        'https://www.weatherbit.io/static/img/icons/r01d.png'
+        'https://www.weatherbit.io/static/img/icons/r01d.png',
+        100, 100, 50
       ),
       buildDay(
         startDate.clone().add(2, 'day'),
