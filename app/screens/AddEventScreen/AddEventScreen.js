@@ -37,7 +37,7 @@ class AddEventScreen extends Component {
             descHandler={this.onChangeDescHandler}
             description={this.state.description}
             name={this.state.name}
-            day={dateString}
+            dateString={dateString}
           />
         </CardSection>
         <CardSection style={button}>
