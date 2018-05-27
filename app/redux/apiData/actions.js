@@ -37,9 +37,3 @@ export function get7DaysTemperature() {
     })
   }
 }
-
-export function getGeolocation() {
-  navigator.Geolocation.getCurrentPosition((location) => {
-    console.log(location)
-  })
-}
