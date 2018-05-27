@@ -35,7 +35,7 @@ function messageFromWeather(weather) {
 }
 
 export const DayInfoComponent = ({ day }) => {
-  const temperatureMessage = `Current temp: ${day.weather.temperatureCelcius}
+  const temperatureMessage = `Current temp: ${day.weather.temperatureCelcius}°C
     ${messageFromWeather(day.weather)}`
 
   return <Text style={weatherInfoStyle}>{temperatureMessage}</Text>

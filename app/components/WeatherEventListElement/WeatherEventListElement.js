@@ -41,7 +41,8 @@ const WeatherEventListElement = ({
   navigation,
   date
 }) => {
-  const numberOfEvents = eventsNumber > 0 ? eventsNumber > 1 ? `${eventsNumber} events` : '1 event' : 'no events'
+  const numberOfEvents = `${eventsNumber || 'no'} event${eventsNumber === 1 ? '' : 's'}`
+
   const eventsNumberInfo = `You have ${numberOfEvents} today`
 
   return (
@@ -72,7 +73,7 @@ WeatherEventListElement.propTypes = {
   date: PropTypes.string.isRequired,
   eventsNumber: PropTypes.number.isRequired,
   headerInfo: PropTypes.string.isRequired,
-  footerInfo: PropTypes.number.isRequired,
+  footerInfo: PropTypes.string.isRequired,
   scale: PropTypes.number.isRequired,
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired

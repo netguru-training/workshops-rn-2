@@ -29,7 +29,7 @@ class HomeScreen extends React.Component {
           <CurrentWeatherInfo
             headerInfo={moment(new Date(formattedDays[0].id)).format('dddd')}
             imageUrl={formattedDays[0].weather.icon}
-            footerInfo={formattedDays[0].weather.temperatureCelcius}
+            footerInfo={`${formattedDays[0].weather.temperatureCelcius}°C`}
             scale={1.66}
           />
         </View>
@@ -48,7 +48,7 @@ class HomeScreen extends React.Component {
                     date={day.id}
                     imageUrl={day.weather.icon}
                     headerInfo={moment(new Date(day.id)).format('dddd')}
-                    footerInfo={day.weather.temperatureCelcius}
+                    footerInfo={`${day.weather.temperatureCelcius}°C`}
                     scale={0.6}
                     navigation={this.props.navigation}
                     eventsNumber={tasks.length}
