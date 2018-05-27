@@ -7,23 +7,36 @@ import TasksList from './TasksList'
 
 const { containerStyle, weatherInfoStyle } = styles
 
-function messageFromCelcius(temperatureCelcius) {
-  if (temperatureCelcius < 0) {
-    return 'Dress warmly!'
-  } else if (temperatureCelcius < 20) {
-    return 'Remember about the jacket!'
-  } else if (temperatureCelcius < 30) {
-    return 'What a nice day!'
+function messageFromWeather(weather) {
+  let message
+
+  if (weather.temperatureCelcius < 0) {
+    message = 'Dress warmly!'
+  } else if (weather.temperatureCelcius < 10) {
+    message = 'Remember about the jacket!'
+  } else if (weather.temperatureCelcius < 20) {
+    message = 'It\'s warn outside :)'
+  } else if (weather.temperatureCelcius < 25) {
+    message = 'What a nice day!'
+  } else {
+    message = 'Take a bootle of water!!!'
   }
 
-  return 'Take a bootle of water!'
+  if (weather.possibilityOfPrecipitation >= 25) {
+    message += '\nIt might rain - pack an umbrella'
+  }
+
+  if (weather.windSpeed >= 25) {
+    message += '\n It\'s very windy'
+  }
+
+  return message
 }
 
 const DayInfoComponent = ({ dateString, day }) => {
-  // FIXME more data for the message
-  console.log(day);
-  const temperatureMessage = `${dateString}.\nTemperature is ${999999}.
-  ${messageFromCelcius(999999)}`
+  const temperatureMessage = `${dateString}
+  Current temp: ${day.weather.temperatureCelcius}
+  ${messageFromWeather(day.weather)}`
 
   return <Text style={weatherInfoStyle}>{temperatureMessage}</Text>
 }
