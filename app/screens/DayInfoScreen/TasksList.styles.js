@@ -4,7 +4,6 @@ const styles = {
     backgroundColor: '#f5f5f6',
     paddingLeft: 8
   },
-
   tasksListStyle: {
     flex: 1,
     shadowOffset: { width: 0, height: 2 },
