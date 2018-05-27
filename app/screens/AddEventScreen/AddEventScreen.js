@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { CardSection, CreateEventForm, Button } from '../../components'
 import styles from './AddEventScreen.styles'
+import { EVENT_ADDED } from '../../redux/types'
 
 const {
   containerStyle, formStyle, header, headerText, button
@@ -73,7 +74,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     saveNewEvent: (date, name, desc) => {
       dispatch({
-        type: 'saveEvent',
+        type: EVENT_ADDED,
         payload: { date, name, desc }
       })
     }

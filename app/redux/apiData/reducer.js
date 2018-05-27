@@ -1,5 +1,5 @@
 import * as _ from 'lodash'
-import { GET_7_DAYS_TEMPERATURE_DATA } from '../types'
+import {EVENT_ADDED, GET_7_DAYS_TEMPERATURE_DATA} from '../types'
 import initialDaysDataState from './initialDaysDataState'
 
 const initialState = { data: [] }
@@ -10,7 +10,7 @@ function apiData(state = initialState /* , action */) {
 
 function daysData(state = initialDaysDataState, action) {
   switch (action.type) {
-    case 'saveEvent':
+    case EVENT_ADDED:
       return !state.tasksForDays[action.payload.date]
         ? {
           ...state,
