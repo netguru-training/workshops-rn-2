@@ -4,7 +4,7 @@ const styles = {
     paddingRight: 5,
     paddingLeft: 20,
     fontSize: 18,
-    lineHeight: 23,
+    lineHeight: 21,
     flex: 2,
     paddingTop: 0
   },

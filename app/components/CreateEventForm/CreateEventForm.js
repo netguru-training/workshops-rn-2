@@ -12,13 +12,13 @@ const CreateEventForm = (props) => {
       <Text style={formLabel}>{props.day}</Text>
       <Input
         label='Name'
-        placeholder='Text'
+        placeholder='Party'
         value={props.name}
         onChangeText={props.nameHandler}
       />
       <Input
         label='Description'
-        placeholder='Text'
+        placeholder='Remeber to buy drinks'
         value={props.description}
         onChangeText={props.descHandler}
         multiline

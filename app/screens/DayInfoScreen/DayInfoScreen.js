@@ -100,7 +100,11 @@ class DayInfoScreen extends Component {
 
 DayInfoScreen.navigationOptions = () => {
   return {
-    headerTitle: 'Day Info'
+    headerTitle: 'Day Info',
+    headerStyle: {
+      backgroundColor: '#4dd0e1'
+    },
+    headerTintColor: '#000'
   }
 }
 

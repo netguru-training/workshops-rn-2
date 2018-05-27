@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import { View, Text, Button } from 'react-native'
+import { View, Text } from 'react-native'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { CardSection, CreateEventForm } from '../../components'
+import { CardSection, CreateEventForm, Button } from '../../components'
 import styles from './AddEventScreen.styles'
 
-const { containerStyle, formStyle } = styles
+const { containerStyle, formStyle, header, headerText, button } = styles
 
 class AddEventScreen extends Component {
   state = {
@@ -25,8 +25,8 @@ class AddEventScreen extends Component {
   render() {
     return (
       <View style={containerStyle}>
-        <CardSection>
-          <Text>Based on api data</Text>
+        <CardSection style={header}>
+          <Text style={headerText}>Based on api data</Text>
         </CardSection>
         <CardSection style={formStyle}>
           <CreateEventForm
@@ -37,7 +37,7 @@ class AddEventScreen extends Component {
             day={this.state.day}
           />
         </CardSection>
-        <CardSection>
+        <CardSection style={button}>
           <Button
             onPress={() => {
               this.props.saveNewEvent(
@@ -46,8 +46,9 @@ class AddEventScreen extends Component {
                 this.state.description
               )
             }}
-            title='Add event'
-          />
+          >
+            Save Event
+          </Button>
         </CardSection>
       </View>
     )
@@ -56,7 +57,11 @@ class AddEventScreen extends Component {
 
 AddEventScreen.navigationOptions = () => {
   return {
-    headerTitle: 'Add Event'
+    headerTitle: 'Add Event',
+    headerStyle: {
+      backgroundColor: '#4dd0e1'
+    },
+    headerTintColor: '#000'
   }
 }
 
