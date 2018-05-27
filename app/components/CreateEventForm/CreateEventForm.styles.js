@@ -2,11 +2,12 @@ const styles = {
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   formLabel: {
-    fontSize: 20,
-    marginBottom: 10
+    fontSize: 23,
+    marginBottom: 10,
+    fontWeight: 'bold'
   }
 }
 

@@ -1,11 +1,9 @@
 const styles = {
   verticalContainer: {
-    backgroundColor: 'white',
     flex: 1,
     flexDirection: 'column'
   },
   horizontalContainer: {
-    backgroundColor: 'white',
     flex: 1,
     flexDirection: 'row'
   },

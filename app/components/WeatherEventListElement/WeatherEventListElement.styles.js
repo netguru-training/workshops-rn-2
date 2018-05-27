@@ -21,9 +21,9 @@ const styles = {
     textAlign: 'center',
     height: 35,
     width: 35,
-    borderWidth: 1,
     borderRadius: 18,
-    borderColor: 'black'
+    backgroundColor: '#4dd0e1',
+    overflow: 'hidden'
   }
 }
 

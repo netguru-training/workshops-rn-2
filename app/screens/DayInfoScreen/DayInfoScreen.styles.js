@@ -1,17 +1,16 @@
 const styles = {
   containerStyle: {
     flex: 1,
-    backgroundColor: 'white'
+    backgroundColor: '#f5f5f6'
   },
   weatherInfoStyle: {
-    fontWeight: 'bold',
     lineHeight: 30,
     fontSize: 20,
-    margin: 10
+    padding: 10,
+    backgroundColor: '#e1e2e1'
   },
   tasksListStyle: {
     flex: 1,
-    backgroundColor: 'white'
   },
   taskHeaderStyle: {
     fontSize: 20,
@@ -19,7 +18,7 @@ const styles = {
     margin: 10
   },
   taskHeaderContainerStyle: {
-    backgroundColor: 'lightgray'
+    backgroundColor: '#f5f5f6'
   }
 }
 

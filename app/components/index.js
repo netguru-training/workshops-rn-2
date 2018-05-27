@@ -3,6 +3,7 @@ import WeatherEventListElement from './WeatherEventListElement/WeatherEventListE
 import CardSection from './CardSection/CardSection'
 import CreateEventForm from './CreateEventForm/CreateEventForm'
 import Input from './Input/Input'
+import Button from './Button/Button'
 import DailyTaskElement from './DailyTaskElement/DailyTaskElement'
 
 export {
@@ -11,5 +12,6 @@ export {
   CardSection,
   CreateEventForm,
   Input,
-  DailyTaskElement
+  DailyTaskElement,
+  Button
 }

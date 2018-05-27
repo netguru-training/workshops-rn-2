@@ -101,7 +101,10 @@ HomeScreen.propTypes = {
 
 HomeScreen.navigationOptions = () => {
   return {
-    headerTitle: 'Home'
+    headerTitle: 'Home',
+    headerStyle: {
+      backgroundColor: '#4dd0e1'
+    }
   }
 }
 

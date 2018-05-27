@@ -1,11 +1,12 @@
 const styles = {
   containerStyle: {
     flex: 1,
-    paddingHorizontal: 6
+    backgroundColor: '#f5f5f6'
   },
   currentWeatherContainerStyle: {
     flex: 0.35,
-    paddingVertical: 10
+    paddingVertical: 10,
+    backgroundColor: '#e1e2e1'
   },
   eventInfoButtonStyle: {
     flex: 0.5,
@@ -21,7 +22,8 @@ const styles = {
     justifyContent: 'center'
   },
   listContainer: {
-    flex: 0.65
+    flex: 0.65,
+    paddingHorizontal: 6,
   }
 }
 
