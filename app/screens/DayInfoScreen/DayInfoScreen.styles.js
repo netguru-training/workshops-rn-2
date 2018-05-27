@@ -2,7 +2,7 @@ const styles = {
   containerStyle: {
     flex: 1,
     backgroundColor: '#f5f5f6'
-  },
+  }
   // weatherInfoStyle: {
   //   lineHeight: 30,
   //   fontSize: 17,
