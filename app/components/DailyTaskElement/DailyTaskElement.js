@@ -1,43 +1,26 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { View, Text, Button } from 'react-native'
+import {Image, Text, TouchableOpacity, View} from 'react-native'
 import styles from './DailyTaskElement.styles'
+import tickFalse from './tick_false.png'
+import tickTrue from './tick_true.png'
 
 const {
-  verticalContainer,
-  horizontalContainer,
-  titleStyle,
-  descriptionStyle,
-  buttonStyle
+  verticalContainer, horizontalContainer, titleStyle, descriptionStyle, buttonStyle
 } = styles
 
 const DailyTaskElement = ({
   title, description, done, onComplete
 }) => {
-  const message = done ? 'Completed' : 'Complete'
-
   return (
-    <View
-      style={verticalContainer}
-    >
+    <View style={verticalContainer}>
       <View style={horizontalContainer}>
-        <Text
-          style={titleStyle}
-        >
-          {title}
-        </Text>
-        <Button
-          style={buttonStyle}
-          title={message}
-          onPress={onComplete}
-          disabled={done}
-        />
+        <Text style={titleStyle}>{title}</Text>
+        <TouchableOpacity onPress={onComplete} style={buttonStyle}>
+          <Image style={styles.tickButton} source={done ? tickTrue : tickFalse}  />
+        </TouchableOpacity>
       </View>
-      <Text
-        style={descriptionStyle}
-      >
-        {description}
-      </Text>
+      <Text style={descriptionStyle}>{description}</Text>
     </View>
   )
 }
