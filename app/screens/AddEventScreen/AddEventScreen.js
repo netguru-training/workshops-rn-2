@@ -5,13 +5,14 @@ import { connect } from 'react-redux'
 import { CardSection, CreateEventForm, Button } from '../../components'
 import styles from './AddEventScreen.styles'
 
-const { containerStyle, formStyle, header, headerText, button } = styles
+const {
+  containerStyle, formStyle, header, headerText, button
+} = styles
 
 class AddEventScreen extends Component {
   state = {
     name: '',
-    description: '',
-    day: this.props.navigation.getParam('dateString') // FIXME -> dateString
+    description: ''
   }
 
   onChangeNameHandler = (val) => {
@@ -23,6 +24,8 @@ class AddEventScreen extends Component {
   }
 
   render() {
+    const dateString = this.props.navigation.getParam('dateString')
+
     return (
       <View style={containerStyle}>
         <CardSection style={header}>
@@ -34,17 +37,13 @@ class AddEventScreen extends Component {
             descHandler={this.onChangeDescHandler}
             description={this.state.description}
             name={this.state.name}
-            day={this.state.day}
+            day={dateString}
           />
         </CardSection>
         <CardSection style={button}>
           <Button
             onPress={() => {
-              this.props.saveNewEvent(
-                this.state.day,
-                this.state.name,
-                this.state.description
-              )
+              this.props.saveNewEvent(dateString, this.state.name, this.state.description)
             }}
           >
             Save Event
