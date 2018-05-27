@@ -28,8 +28,8 @@ const CreateEventForm = (props) => {
 
 CreateEventForm.propTypes = {
   dateString: PropTypes.string.isRequired,
-  nameHandler: PropTypes.func,
-  descHandler: PropTypes.func,
+  nameHandler: PropTypes.func.isRequired,
+  descHandler: PropTypes.func.isRequired,
   name: PropTypes.string,
   description: PropTypes.string
 }

@@ -1,7 +1,8 @@
 const styles = {
   verticalContainer: {
     flex: 1,
-    flexDirection: 'column'
+    flexDirection: 'column',
+    backgroundColor: '#e1e2e1'
   },
   horizontalContainer: {
     flex: 1,
