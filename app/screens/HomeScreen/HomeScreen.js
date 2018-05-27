@@ -9,12 +9,6 @@ import styles from './HomeScreen.styles'
 const {
   containerStyle,
   currentWeatherContainerStyle,
-  // eslint-disable-next-line no-unused-vars
-  eventInfoButtonStyle,
-  // eslint-disable-next-line no-unused-vars
-  addEventButtonStyle,
-  // eslint-disable-next-line no-unused-vars
-  buttonsContainerStyle,
   listContainer
 } = styles
 
@@ -63,24 +57,6 @@ class HomeScreen extends React.Component {
                 )
               })}
         </ScrollView>
-        {/* <View */}
-        {/* style={buttonsContainerStyle} */}
-        {/* > */}
-        {/* <Button */}
-        {/* style={eventInfoButtonStyle} */}
-        {/* title='Go to Day Info' */}
-        {/* onPress={() => { */}
-        {/* return navigate('DayInfo') */}
-        {/* }} */}
-        {/* /> */}
-        {/* <Button */}
-        {/* style={addEventButtonStyle} */}
-        {/* title='Go to Add Event' */}
-        {/* onPress={() => { */}
-        {/* return navigate('AddEvent') */}
-        {/* }} */}
-        {/* /> */}
-        {/* </View> */}
       </View>
     )
   }
