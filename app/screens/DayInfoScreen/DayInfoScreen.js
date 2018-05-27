@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { View, Text} from 'react-native'
+import { View, Text } from 'react-native'
 import styles from './DayInfoScreen.styles'
-import { get7DaysTemperature } from '../../redux/apiData/actions'
 import TasksList from './TasksList'
 
 const { containerStyle, weatherInfoStyle } = styles
@@ -21,10 +20,11 @@ function messageFromCelcius(temperatureCelcius) {
 }
 
 const DayInfoComponent = ({ dateString }) => {
-  // FIXME
-  // const temperatureMessage = `${dateString}.\nTemperature is ${temperatureCelcius}.
-  // ${messageFromCelcius(temperatureCelcius)}`
-  return <Text style={weatherInfoStyle}>{dateString}</Text>
+  // FIXME more data for the message
+  const temperatureMessage = `${dateString}.\nTemperature is ${999999}.
+  ${messageFromCelcius(999999)}`
+
+  return <Text style={weatherInfoStyle}>{temperatureMessage}</Text>
 }
 
 DayInfoComponent.propTypes = {
@@ -43,36 +43,9 @@ class DayInfoScreen extends Component {
   state = {}
 
   render() {
-    // FIXME take from REDUX
-    const tasks = [
-      {
-        id: 1,
-        title: 'Wyjdź z domu',
-        description: 'Lorem ipsum',
-        done: true
-      },
-      {
-        id: 2,
-        title: 'Kup kwiaty',
-        description: 'Lorem ipsum dolor sit amet, consectetur',
-        done: false
-      },
-      {
-        id: 3,
-        title: 'Idź do mamy',
-        description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt',
-        done: true
-      },
-      {
-        id: 4,
-        title: 'Złóz zyczenia',
-        description: 'Lorem ipsum',
-        done: false
-      }
-    ]
-    const { navigation } = this.props
+    const { navigation, tasksForDays } = this.props
     const dateString = navigation.getParam('dateString')
+    const tasks = tasksForDays[dateString]
 
     return (
       <View style={containerStyle}>
@@ -94,18 +67,21 @@ DayInfoScreen.navigationOptions = () => {
 }
 
 DayInfoScreen.propTypes = {
-  navigation: PropTypes.object.isRequired
+  navigation: PropTypes.object.isRequired,
+  tasksForDays: PropTypes.object.isRequired
 }
 
 // REDUX STUFF
 
 const mapStateToProps = (state) => {
   return {
+    tasksForDays: state.daysData.tasksForDays
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (/* dispatch */) => {
   return {
+    // FIXME #34
   }
 }
 
