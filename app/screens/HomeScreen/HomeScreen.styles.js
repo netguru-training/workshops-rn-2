@@ -4,7 +4,8 @@ const styles = {
     backgroundColor: '#f5f5f6',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2
+    shadowOpacity: 0.2,
+    position: 'relative'
   },
   currentWeatherContainerStyle: {
     flex: 0.35,
