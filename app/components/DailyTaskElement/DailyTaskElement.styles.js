@@ -24,7 +24,7 @@ const styles = {
     flex: 1,
     width: 32,
     height: 32,
-    resizeMode: 'contain',
+    resizeMode: 'contain'
   }
 }
 

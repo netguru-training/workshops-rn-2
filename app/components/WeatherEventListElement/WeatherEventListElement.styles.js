@@ -21,14 +21,11 @@ const styles = {
     justifyContent: 'center',
     marginLeft: 20
   },
-  plusStyle: {
-    fontSize: 25,
-    textAlign: 'center',
-    height: 35,
-    width: 35,
-    borderRadius: 18,
-    backgroundColor: '#4dd0e1',
-    overflow: 'hidden'
+  addButton: {
+    flex: 1,
+    width: 32,
+    height: 32,
+    resizeMode: 'contain'
   }
 }
 

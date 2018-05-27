@@ -1,26 +1,27 @@
 import React from 'react'
-import { View, Text, TouchableOpacity } from 'react-native'
+import { View, Text, TouchableOpacity, Image } from 'react-native'
 import PropTypes from 'prop-types'
 import CurrentWeatherInfo from '../CurrentWeatherInfo/CurrentWeatherInfo'
 import styles from './WeatherEventListElement.styles'
+
+import addButton from './add_button.png'
 
 const {
   containerStyle,
   currentWeatherEventContainerStyle,
   currentEventsNumberStyle,
   addEventContainerStyle,
-  plusStyle
 } = styles
 
 const AddEventButton = ({ navigation, dateString }) => {
   return (
     <TouchableOpacity
-      style={addEventContainerStyle}
       onPress={() => {
         return navigation.navigate('AddEvent', { dateString })
       }}
+      style={addEventContainerStyle}
     >
-      <Text style={plusStyle}>+</Text>
+      <Image style={styles.addButton} source={addButton} />
     </TouchableOpacity>
   )
 }
