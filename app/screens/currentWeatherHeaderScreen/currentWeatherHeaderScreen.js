@@ -25,23 +25,23 @@ function messageFromWeather(weather) {
     message += '\nIt might rain - pack an umbrella'
   }
 
-  if (weather.windSpeed >= 25) {
+  if (weather.windSpeed >= 5) {
     message += '\n It\'s very windy'
+  } else if (weather.windSpeed >= 25) {
+    message += 'DO NOT GO OUTSIDE!'
   }
 
   return message
 }
 
-export const DayInfoComponent = ({ dateString, day }) => {
-  const temperatureMessage = `${dateString}
-    Current temp: ${day.weather.temperatureCelcius}
+export const DayInfoComponent = ({ day }) => {
+  const temperatureMessage = `Current temp: ${day.weather.temperatureCelcius}
     ${messageFromWeather(day.weather)}`
 
   return <Text style={weatherInfoStyle}>{temperatureMessage}</Text>
 }
 
 DayInfoComponent.propTypes = {
-  dateString: PropTypes.string.isRequired,
   day: PropTypes.object.isRequired // FIXME .shape( { ... } )
 }
 
