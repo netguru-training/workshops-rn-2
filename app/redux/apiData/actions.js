@@ -14,7 +14,7 @@ export function get7DaysTemperature() {
         .get(url)
         .then((response) => {
           for (let i = 0; i < 7; i += 1) {
-            const { temp, datetime } = response.data.data[i]
+            const { temp, datetime, pop, clouds, wind_spd } = response.data.data[i]
             let { icon } = response.data.data[i].weather
             icon = `https://www.weatherbit.io/static/img/icons/${icon}.png`
 
@@ -24,7 +24,10 @@ export function get7DaysTemperature() {
                 id: datetime,
                 weather: {
                   temperatureCelcius: temp,
-                  icon
+                  icon,
+                  possibilityOfPrecipitation: pop,
+                  cloudCoverage: clouds,
+                  windSpeed: wind_spd
                 }
               }
             })
