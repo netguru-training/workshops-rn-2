@@ -2,12 +2,6 @@ import * as _ from 'lodash'
 import { EVENT_ADDED, GET_7_DAYS_TEMPERATURE_DATA } from '../types'
 import initialDaysDataState from './initialDaysDataState'
 
-const initialState = { data: [] }
-
-function apiData(state = initialState /* , action */) {
-  return state
-}
-
 let nextTaskId = 100
 function daysData(state = initialDaysDataState, action) {
   switch (action.type) {
@@ -46,4 +40,4 @@ function daysData(state = initialDaysDataState, action) {
   }
 }
 
-export { apiData, daysData }
+export { daysData }
