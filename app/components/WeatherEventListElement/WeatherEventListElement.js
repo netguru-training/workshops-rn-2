@@ -17,7 +17,8 @@ const WeatherEventListElement = ({
   imageUrl,
   footerInfo,
   eventsNumber,
-  scale
+  scale,
+  onPress
 }) => {
   const eventsNumberInfo = eventsNumber > 0 ?
     `You Have ${eventsNumber} events today` : 'You have no events today'
@@ -28,6 +29,7 @@ const WeatherEventListElement = ({
     >
       <TouchableOpacity
         style={currentWeatherEventContainerStyle}
+        onPress={onPress}
       >
 
         <CurrentWeatherInfo
@@ -61,7 +63,8 @@ WeatherEventListElement.propTypes = {
   eventsNumber: PropTypes.number,
   headerInfo: PropTypes.string,
   footerInfo: PropTypes.number,
-  scale: PropTypes.number
+  scale: PropTypes.number,
+  onPress: PropTypes.func
 }
 
 WeatherEventListElement.defaultProps = {

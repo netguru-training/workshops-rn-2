@@ -53,6 +53,9 @@ const HomeScreen = (props) => {
               headerInfo={moment(new Date(day.date)).format('dddd')}
               footerInfo={day.weather.temperatureCelcius}
               scale={0.6}
+              onPress={() => {
+                navigate('DayInfo', { day })
+              }}
             />
           })
         }

@@ -5,16 +5,7 @@ const styles = {
   },
   weatherInfoStyle: {
     fontWeight: 'bold',
-    fontSize: 20,
-    margin: 10
-  },
-  eventTitleStyle: {
-    fontWeight: 'bold',
-    fontSize: 20,
-    margin: 10
-  },
-  eventDescriptionStyle: {
-    fontWeight: 'normal',
+    lineHeight: 30,
     fontSize: 20,
     margin: 10
   },

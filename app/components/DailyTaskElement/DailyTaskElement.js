@@ -4,38 +4,49 @@ import { View, Text, Button } from 'react-native'
 import styles from './DailyTaskElement.styles'
 
 const {
-  container,
+  verticalContainer,
+  horizontalContainer,
   titleStyle,
+  descriptionStyle,
   buttonStyle
 } = styles
 
 const DailyTaskElement = ({
-  title, done
+  title, description, done, onComplete
 }) => {
   const message = done ? 'Completed' : 'Complete'
 
   return (
     <View
-      style={container}
+      style={verticalContainer}
     >
+      <View style={horizontalContainer}>
+        <Text
+          style={titleStyle}
+        >
+          {title}
+        </Text>
+        <Button
+          style={buttonStyle}
+          title={message}
+          onPress={onComplete}
+          disabled={done}
+        />
+      </View>
       <Text
-        style={titleStyle}
+        style={descriptionStyle}
       >
-        {title}
+        {description}
       </Text>
-      <Button
-        style={buttonStyle}
-        title={message}
-        onPress={() => {}}
-        disabled={done}
-      />
     </View>
   )
 }
 
 DailyTaskElement.propTypes = {
   title: PropTypes.string.isRequired,
-  done: PropTypes.bool.isRequired
+  description: PropTypes.string.isRequired,
+  done: PropTypes.bool.isRequired,
+  onComplete: PropTypes.func.isRequired
 }
 
 export default DailyTaskElement
