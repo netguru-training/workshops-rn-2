@@ -50,6 +50,8 @@ class AddEventScreen extends Component {
           <Button
             onPress={() => {
               this.props.saveNewEvent(dateString, this.state.name, this.state.description)
+              // FIXME a hack, as integration with Redux took way too much time, and was not working
+              this.props.navigation.navigate('Home')
             }}
           >
             Save Event
