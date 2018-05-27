@@ -56,6 +56,9 @@ class HomeScreen extends React.Component {
                     scale={0.6}
                     navigation={this.props.navigation}
                     eventsNumber={0}
+                    onPress={() => {
+                        navigate('DayInfo', { day }) // FIX ME: day isn't passed here
+                    }}
                   />
                 )
               })}

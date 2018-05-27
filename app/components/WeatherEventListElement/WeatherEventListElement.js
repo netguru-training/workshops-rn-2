@@ -76,7 +76,8 @@ WeatherEventListElement.propTypes = {
   scale: PropTypes.number.isRequired,
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired
-  }).isRequired
+  }).isRequired,
+  onPress: PropTypes.func
 }
 
 export default WeatherEventListElement
