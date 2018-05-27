@@ -13,12 +13,12 @@ const {
 
 class AddEventScreen extends Component {
   state = {
-    name: '',
+    title: '',
     description: ''
   }
 
   onChangeNameHandler = (val) => {
-    this.setState({ name: val })
+    this.setState({ title: val })
   }
 
   onChangeDescHandler = (val) => {
@@ -42,14 +42,14 @@ class AddEventScreen extends Component {
             nameHandler={this.onChangeNameHandler}
             descHandler={this.onChangeDescHandler}
             description={this.state.description}
-            name={this.state.name}
+            name={this.state.title}
             dateString={dateString}
           />
         </CardSection>
         <CardSection style={button}>
           <Button
             onPress={() => {
-              this.props.saveNewEvent(dateString, this.state.name, this.state.description)
+              this.props.saveNewEvent(dateString, this.state.title, this.state.description)
               // FIXME a hack, as integration with Redux took way too much time, and was not working
               this.props.navigation.navigate('Home')
             }}
@@ -86,10 +86,10 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    saveNewEvent: (date, name, desc) => {
+    saveNewEvent: (date, title, description) => {
       dispatch({
         type: EVENT_ADDED,
-        payload: { date, name, desc }
+        payload: { date, title, description }
       })
     }
   }

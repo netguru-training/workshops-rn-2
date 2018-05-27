@@ -16,8 +16,8 @@ function daysData(state = initialDaysDataState, action) {
       nextTaskId += 1
       const newTask = {
         id: nextTaskId,
-        title: payload.name,
-        description: payload.desc,
+        title: payload.title,
+        description: payload.description,
         done: false
       }
 
