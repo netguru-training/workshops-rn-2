@@ -20,7 +20,7 @@ class DayInfoScreen extends Component {
 
     return (
       <View style={containerStyle}>
-        <DayInfo dateString={dateString} day={day} />
+        <DayInfo day={day} />
         <TasksList
           tasks={tasks}
           toggleTaskCompletion={(taskId) => {
@@ -61,7 +61,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     toggleTaskCompletion: (dateString, taskId) => {
-      console.log('COMPLETING TASK:', dateString, taskId)
       dispatch({
         type: TASK_COMPLETION_TOGGLED,
         dateString,

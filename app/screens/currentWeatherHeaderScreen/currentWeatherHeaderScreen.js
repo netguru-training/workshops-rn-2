@@ -32,16 +32,14 @@ function messageFromWeather(weather) {
   return message
 }
 
-export const DayInfoComponent = ({ dateString, day }) => {
-  const temperatureMessage = `${dateString}
-    Current temp: ${day.weather.temperatureCelcius}
+export const DayInfoComponent = ({ day }) => {
+  const temperatureMessage = `Current temp: ${day.weather.temperatureCelcius}°C
     ${messageFromWeather(day.weather)}`
 
   return <Text style={weatherInfoStyle}>{temperatureMessage}</Text>
 }
 
 DayInfoComponent.propTypes = {
-  dateString: PropTypes.string.isRequired,
   day: PropTypes.object.isRequired // FIXME .shape( { ... } )
 }
 
