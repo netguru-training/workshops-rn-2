@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { CardSection, CreateEventForm, Button } from '../../components'
 import styles from './AddEventScreen.styles'
+import { DayInfo } from '../currentWeatherHeaderScreen/currentWeatherHeaderScreen'
+import { EVENT_ADDED } from '../../redux/types'
 
 const {
-  containerStyle, formStyle, header, headerText, button
+  containerStyle, formStyle, header, button
 } = styles
 
 class AddEventScreen extends Component {
@@ -24,12 +26,16 @@ class AddEventScreen extends Component {
   }
 
   render() {
+    const { days } = this.props
     const dateString = this.props.navigation.getParam('dateString')
+    const day = days.find((w) => {
+      return w.id === dateString
+    })
 
     return (
       <View style={containerStyle}>
         <CardSection style={header}>
-          <Text style={headerText}>Based on api data</Text>
+          <DayInfo dateString={dateString} day={day} />
         </CardSection>
         <CardSection style={formStyle}>
           <CreateEventForm
@@ -66,18 +72,25 @@ AddEventScreen.navigationOptions = () => {
 
 AddEventScreen.propTypes = {
   navigation: PropTypes.object.isRequired,
-  saveNewEvent: PropTypes.func
+  saveNewEvent: PropTypes.func,
+  days: PropTypes.array.isRequired
+}
+
+const mapStateToProps = (state) => {
+  return {
+    days: state.daysData.days
+  }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
     saveNewEvent: (date, name, desc) => {
       dispatch({
-        type: 'saveEvent',
+        type: EVENT_ADDED,
         payload: { date, name, desc }
       })
     }
   }
 }
 
-export default connect(null, mapDispatchToProps)(AddEventScreen)
+export default connect(mapStateToProps, mapDispatchToProps)(AddEventScreen)
