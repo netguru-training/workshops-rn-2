@@ -2,6 +2,7 @@ const styles = {
   containerStyle: {
     flex: 1,
     backgroundColor: '#f5f5f6',
+    paddingLeft: 8
   },
 
   tasksListStyle: {
@@ -12,7 +13,7 @@ const styles = {
   taskHeaderStyle: {
     fontSize: 20,
     fontWeight: 'bold',
-    margin: 10
+    marginVertical: 15
   },
   taskHeaderContainerStyle: {
     backgroundColor: '#f5f5f6'

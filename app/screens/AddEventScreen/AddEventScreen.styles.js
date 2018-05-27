@@ -6,16 +6,18 @@ const styles = {
   },
   formStyle: {
     flex: 1,
-    backgroundColor: '#f5f5f6',
+    backgroundColor: '#f5f5f6'
   },
   header: {
-    backgroundColor: 'lightgray'
+    backgroundColor: '#e1e2e1'
   },
   headerText: {
-    fontSize: 20
+    fontSize: 20,
+    fontWeight: 'bold'
   },
   button: {
-    padding: 0
+    paddingHorizontal: 0,
+    paddingVertical: 0
   }
 }
 

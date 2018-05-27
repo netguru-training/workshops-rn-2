@@ -5,12 +5,12 @@ const styles = {
   },
   horizontalContainer: {
     flex: 1,
-    flexDirection: 'row'
+    flexDirection: 'row',
+    justifyContent: 'space-between'
   },
   titleStyle: {
     flex: 0.9,
-    fontSize: 20,
-    margin: 10
+    fontSize: 20
   },
   descriptionStyle: {
     flex: 1,
