@@ -19,8 +19,9 @@ function messageFromCelcius(temperatureCelcius) {
   return 'Take a bootle of water!'
 }
 
-const DayInfoComponent = ({ dateString }) => {
+const DayInfoComponent = ({ dateString, day }) => {
   // FIXME more data for the message
+  console.log(day);
   const temperatureMessage = `${dateString}.\nTemperature is ${999999}.
   ${messageFromCelcius(999999)}`
 
@@ -28,7 +29,8 @@ const DayInfoComponent = ({ dateString }) => {
 }
 
 DayInfoComponent.propTypes = {
-  dateString: PropTypes.string.isRequired
+  dateString: PropTypes.string.isRequired,
+  day: PropTypes.object.isRequired // FIXME .shape( { ... } )
 }
 
 const mapStateToPropsDayInfo = (state) => {
@@ -37,19 +39,31 @@ const mapStateToPropsDayInfo = (state) => {
   }
 }
 
-const DayInfo = connect(mapStateToPropsDayInfo)(DayInfoComponent)
+const mergePropsDayInfo = (stateProps, dispatchProps, ownProps) => {
+  // we need to merge for example `navigation` property
+  return {
+    ...stateProps,
+    ...dispatchProps,
+    ...ownProps
+  }
+}
+
+const DayInfo = connect(mapStateToPropsDayInfo, null, mergePropsDayInfo)(DayInfoComponent)
 
 class DayInfoScreen extends Component {
   state = {}
 
   render() {
-    const { navigation, tasksForDays } = this.props
+    const { navigation, tasksForDays, days } = this.props
     const dateString = navigation.getParam('dateString')
+    const day = days.find((w) => {
+      return w.id === dateString
+    })
     const tasks = tasksForDays[dateString]
 
     return (
       <View style={containerStyle}>
-        <DayInfo dateString={dateString} />
+        <DayInfo dateString={dateString} day={day} />
         <TasksList tasks={tasks} />
       </View>
     )
@@ -68,14 +82,16 @@ DayInfoScreen.navigationOptions = () => {
 
 DayInfoScreen.propTypes = {
   navigation: PropTypes.object.isRequired,
-  tasksForDays: PropTypes.object.isRequired
+  tasksForDays: PropTypes.object.isRequired,
+  days: PropTypes.array.isRequired
 }
 
 // REDUX STUFF
 
 const mapStateToProps = (state) => {
   return {
-    tasksForDays: state.daysData.tasksForDays
+    tasksForDays: state.daysData.tasksForDays,
+    days: state.daysData.days
   }
 }
 
