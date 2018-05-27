@@ -40,6 +40,8 @@ class HomeScreen extends React.Component {
                 return day.id !== 0
               })
               .map((day) => {
+                const tasks = this.props.daysData.tasksForDays[day.id] || []
+
                 return (
                   <WeatherEventListElement
                     key={day.id}
@@ -49,7 +51,7 @@ class HomeScreen extends React.Component {
                     footerInfo={day.weather.temperatureCelcius}
                     scale={0.6}
                     navigation={this.props.navigation}
-                    eventsNumber={0}
+                    eventsNumber={tasks.length}
                   />
                 )
               })}
