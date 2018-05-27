@@ -11,7 +11,7 @@ class AddEventScreen extends Component {
   state = {
     name: '',
     description: '',
-    day: this.props.navigation.getParam('day')
+    day: this.props.navigation.getParam('dateString') // FIXME -> dateString
   }
 
   onChangeNameHandler = (val) => {
