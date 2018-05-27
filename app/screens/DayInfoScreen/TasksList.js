@@ -6,12 +6,11 @@ import styles from './TasksList.styles'
 import DailyTaskElement from '../../components/DailyTaskElement/DailyTaskElement'
 import { CardSection } from '../../components'
 
-
 const {
   containerStyle, tasksListStyle, taskHeaderStyle, taskHeaderContainerStyle
 } = styles
 
-const TasksList = ({ tasks }) => {
+const TasksList = ({ tasks, toggleTaskCompletion }) => {
   return (
     <View style={containerStyle}>
       <View style={taskHeaderContainerStyle}>
@@ -28,7 +27,7 @@ const TasksList = ({ tasks }) => {
                 description={item.description}
                 done={item.done}
                 onComplete={() => {
-                  console.log('Complete pressed') // FIXME add task completion  #35
+                  toggleTaskCompletion(item.id)
                 }}
               />
             </CardSection>
@@ -51,6 +50,7 @@ TasksList.propTypes = {
       description: PropTypes.string.isRequired,
       done: PropTypes.bool.isRequired
     })
-  )
+  ),
+  toggleTaskCompletion: PropTypes.func.isRequired
 }
 export default TasksList

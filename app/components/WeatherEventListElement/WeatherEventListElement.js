@@ -41,7 +41,7 @@ const WeatherEventListElement = ({
   navigation,
   date
 }) => {
-  const numberOfEvents = eventsNumber > 0 ? eventsNumber > 1 ? `${eventsNumber} events` : `1 event`  : 'no events'
+  const numberOfEvents = eventsNumber > 0 ? eventsNumber > 1 ? `${eventsNumber} events` : '1 event' : 'no events'
   const eventsNumberInfo = `You have ${numberOfEvents} today`
 
   return (

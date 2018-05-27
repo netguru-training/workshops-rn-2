@@ -1,8 +1,19 @@
 import * as _ from 'lodash'
-import { EVENT_ADDED, GET_7_DAYS_TEMPERATURE_DATA } from '../types'
+import { EVENT_ADDED, GET_7_DAYS_TEMPERATURE_DATA, TASK_COMPLETION_TOGGLED } from '../types'
 import initialDaysDataState from './initialDaysDataState'
 
 let nextTaskId = 100
+
+const replaceReplaceTasksForDay = (state, dateString, tasksForDay) => {
+  return {
+    ...state,
+    tasksForDays: {
+      ...state.tasksForDays,
+      [dateString]: tasksForDay
+    }
+  }
+}
+
 function daysData(state = initialDaysDataState, action) {
   switch (action.type) {
     case EVENT_ADDED:
@@ -18,13 +29,7 @@ function daysData(state = initialDaysDataState, action) {
       const tasksForDay = state.tasksForDays[payload.date] || []
       tasksForDay.push(newTask)
 
-      return {
-        ...state,
-        tasksForDays: {
-          ...state.tasksForDays,
-          [payload.date]: tasksForDay
-        }
-      }
+      return replaceReplaceTasksForDay(state, payload.date, tasksForDay)
 
     case GET_7_DAYS_TEMPERATURE_DATA:
       const newDays = [...state.days]
@@ -35,6 +40,22 @@ function daysData(state = initialDaysDataState, action) {
         ...state,
         days: newDays
       }
+
+    case TASK_COMPLETION_TOGGLED:
+      let tasksForDay2 = state.tasksForDays[action.dateString] || []
+      tasksForDay2 = tasksForDay2.map((task) => {
+        if (task.id === action.taskId) {
+          return {
+            ...task,
+            done: !task.done
+          }
+        }
+
+        return task
+      })
+
+      return replaceReplaceTasksForDay(state, action.dateString, tasksForDay2)
+
     default:
       return state
   }

@@ -5,12 +5,11 @@ import { View } from 'react-native'
 import styles from './DayInfoScreen.styles'
 import TasksList from './TasksList'
 import { DayInfo } from '../currentWeatherHeaderScreen/currentWeatherHeaderScreen'
+import { TASK_COMPLETION_TOGGLED } from '../../redux/types'
 
 const { containerStyle } = styles
 
 class DayInfoScreen extends Component {
-  state = {}
-
   render() {
     const { navigation, tasksForDays, days } = this.props
     const dateString = navigation.getParam('dateString')
@@ -22,7 +21,12 @@ class DayInfoScreen extends Component {
     return (
       <View style={containerStyle}>
         <DayInfo dateString={dateString} day={day} />
-        <TasksList tasks={tasks} />
+        <TasksList
+          tasks={tasks}
+          toggleTaskCompletion={(taskId) => {
+            this.props.toggleTaskCompletion(day.id, taskId)
+          }}
+        />
       </View>
     )
   }
@@ -41,7 +45,8 @@ DayInfoScreen.navigationOptions = () => {
 DayInfoScreen.propTypes = {
   navigation: PropTypes.object.isRequired,
   tasksForDays: PropTypes.object.isRequired,
-  days: PropTypes.array.isRequired
+  days: PropTypes.array.isRequired,
+  toggleTaskCompletion: PropTypes.func.isRequired
 }
 
 // REDUX STUFF
@@ -53,9 +58,16 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (/* dispatch */) => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    // FIXME #34
+    toggleTaskCompletion: (dateString, taskId) => {
+      console.log('COMPLETING TASK:', dateString, taskId)
+      dispatch({
+        type: TASK_COMPLETION_TOGGLED,
+        dateString,
+        taskId
+      })
+    }
   }
 }
 
