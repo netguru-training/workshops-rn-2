@@ -29,7 +29,8 @@ class DayInfoScreen extends Component {
   state = { }
   render() {
     const { navigation } = this.props
-    const date = get(navigation, 'state.params.day.date', '')
+    const day = get(navigation, 'state.params.day', {})
+    const date = get(navigation, 'state.params.day.id', '')
     const temperatureCelcius = get(navigation, 'state.params.day.weather.temperatureCelcius', 0)
     const temperatureMessage = `${date}.\nTempearute is ${temperatureCelcius}. ${messageFromCelcius(temperatureCelcius)}`
 

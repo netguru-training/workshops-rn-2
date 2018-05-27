@@ -1,17 +1,19 @@
 import { connect } from 'react-redux'
 import HomeScreen from './HomeScreen'
+import { get7DaysTemperature } from '../../redux/apiData/actions'
 
 const mapStateToProps = (state) => {
   return {
-    stuff: state
+    daysData: state.daysData
   }
 }
 
-const mapDispatchToProps = (/* dispatch */) => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    // onAddEvent: (dateAsString) => {
-    //   dispatch(showAddEventScreen(dateAsString))
-    // }
+    load7DaysWeatherData: () => {
+      const fn = get7DaysTemperature()
+      fn(dispatch)
+    }
   }
 }
 

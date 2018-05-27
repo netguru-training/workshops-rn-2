@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import styles from './Input.styles'
 
 const Input = ({
-  label, value, onChangeText, placeholder, secureTextEntry
+  label, value, onChangeText, placeholder, secureTextEntry, multiline
 }) => {
   const { inputStyle, labelStyle, containerStyle } = styles
 
@@ -12,6 +12,7 @@ const Input = ({
     <View style={containerStyle}>
       <Text style={labelStyle}>{label}</Text>
       <TextInput
+        multiline={multiline}
         secureTextEntry={secureTextEntry}
         placeholder={placeholder}
         autoCorrect={false}
@@ -28,13 +29,15 @@ Input.propTypes = {
   onChangeText: PropTypes.func.isRequired,
   value: PropTypes.string,
   placeholder: PropTypes.string,
-  secureTextEntry: PropTypes.bool
+  secureTextEntry: PropTypes.bool,
+  multiline: PropTypes.bool
 }
 
 Input.defaultProps = {
   value: '',
   placeholder: '',
-  secureTextEntry: false
+  secureTextEntry: false,
+  multiline: false
 }
 
 export default Input
