@@ -4,6 +4,8 @@ import PropTypes from 'prop-types'
 import { View, Text, FlatList } from 'react-native'
 import styles from './TasksList.styles'
 import DailyTaskElement from '../../components/DailyTaskElement/DailyTaskElement'
+import { CardSection } from '../../components'
+
 
 const {
   containerStyle, tasksListStyle, taskHeaderStyle, taskHeaderContainerStyle
@@ -20,14 +22,17 @@ const TasksList = ({ tasks }) => {
         data={tasks}
         renderItem={({ item }) => {
           return (
-            <DailyTaskElement
-              title={item.title}
-              description={item.description}
-              done={item.done}
-              onComplete={() => {
-                console.log('Complete pressed') // FIXME add task completion  #35
-              }}
-            />
+            <CardSection>
+              <DailyTaskElement
+                title={item.title}
+                description={item.description}
+                done={item.done}
+                onComplete={() => {
+                  console.log('Complete pressed') // FIXME add task completion  #35
+                }}
+              />
+            </CardSection>
+
           )
         }}
         keyExtractor={(item) => {
