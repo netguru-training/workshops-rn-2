@@ -2,7 +2,12 @@ const styles = {
   containerStyle: {
     height: 65,
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
+    borderBottomWidth: 5,
+    borderColor: '#f5f5f6',
+    paddingHorizontal: 6,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1
   },
   currentWeatherEventContainerStyle: {
     flex: 5
@@ -12,9 +17,9 @@ const styles = {
     fontSize: 12
   },
   addEventContainerStyle: {
-    flex: 1,
     alignItems: 'flex-end',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    marginLeft: 20
   },
   plusStyle: {
     fontSize: 25,

@@ -9,7 +9,8 @@ const {
   containerRow,
   headerInfoStyle,
   footerInfoStyle,
-  textSmall
+  textSmall,
+  weatherContainer
 } = styles
 
 const CurrentWeatherInfo = ({
@@ -24,12 +25,14 @@ const CurrentWeatherInfo = ({
       >
         {headerInfo}
       </Text>
-      <ResponsiveImage imageUrl={imageUrl} scale={scale} />
-      <Text
-        style={[footerInfoStyle, rowDirection && textSmall]}
-      >
-        {footerInfo}
-      </Text>
+      <View style={[containerRow, weatherContainer]}>
+        <ResponsiveImage imageUrl={imageUrl} scale={scale} />
+        <Text
+          style={[footerInfoStyle, rowDirection && textSmall]}
+        >
+          {footerInfo}
+        </Text>
+      </View>
     </View>
   )
 }

@@ -6,10 +6,10 @@ const styles = {
   },
   formStyle: {
     flex: 1,
-    backgroundColor: '#f5f5f6'
+    backgroundColor: '#f5f5f6',
   },
   header: {
-    backgroundColor: 'lightgray',
+    backgroundColor: 'lightgray'
   },
   headerText: {
     fontSize: 20
