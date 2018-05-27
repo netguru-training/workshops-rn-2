@@ -9,8 +9,8 @@ const styles = {
     fontSize: 16,
     fontWeight: '600',
     paddingTop: 10,
-    paddingBottom: 10,
+    paddingBottom: 10
   }
-};
+}
 
 export default styles

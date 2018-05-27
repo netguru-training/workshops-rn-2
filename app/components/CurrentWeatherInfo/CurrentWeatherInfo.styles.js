@@ -3,7 +3,6 @@ const styles = {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center'
-
   },
   containerRow: {
     flexDirection: 'row',
@@ -28,6 +27,10 @@ const styles = {
   footerInfoStyle: {
     fontSize: 30,
     fontWeight: 'bold'
+    // width: 60
+  },
+  weatherContainer: {
+    width: 150
   }
 }
 

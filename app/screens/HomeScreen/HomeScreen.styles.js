@@ -1,7 +1,10 @@
 const styles = {
   containerStyle: {
     flex: 1,
-    backgroundColor: '#f5f5f6'
+    backgroundColor: '#f5f5f6',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2
   },
   currentWeatherContainerStyle: {
     flex: 0.35,
@@ -22,8 +25,7 @@ const styles = {
     justifyContent: 'center'
   },
   listContainer: {
-    flex: 0.65,
-    paddingHorizontal: 6,
+    flex: 0.65
   }
 }
 

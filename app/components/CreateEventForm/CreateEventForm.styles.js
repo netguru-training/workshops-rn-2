@@ -3,6 +3,8 @@ const styles = {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1
   },
   formLabel: {
     fontSize: 23,

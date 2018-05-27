@@ -5,7 +5,9 @@ import { connect } from 'react-redux'
 import { CardSection, CreateEventForm, Button } from '../../components'
 import styles from './AddEventScreen.styles'
 
-const { containerStyle, formStyle, header, headerText, button } = styles
+const {
+  containerStyle, formStyle, header, headerText, button
+} = styles
 
 class AddEventScreen extends Component {
   state = {
