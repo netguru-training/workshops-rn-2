@@ -14,7 +14,7 @@ function messageFromWeather(weather) {
   } else if (weather.temperatureCelcius < 10) {
     message = 'Remember about the jacket!'
   } else if (weather.temperatureCelcius < 20) {
-    message = 'It\'s warn outside :)'
+    message = 'It\'s warm outside :)'
   } else if (weather.temperatureCelcius < 25) {
     message = 'What a nice day!'
   } else {
